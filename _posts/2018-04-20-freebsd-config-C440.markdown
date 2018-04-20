@@ -5,9 +5,8 @@ date:   2018-04-20 15:51:00
 categories: computer config
 ---
 
-`
 #/boot/loader.conf
-
+```
 autoboot_delay=3
 beastie_disable="YES"
 if_rtwn_load="YES"
@@ -17,9 +16,9 @@ rtwn-rtl8192cfwU_B_load="YES"
 wlan_wep_load="YES"
 wlan_ccmp_load="YES"
 wlan_tkip_load="YES"
-
+```
 #/etc/rc.conf
-
+```
 clear_tmp_enable="YES"
 sendmail_enable="NONE"
 hostname="BSD"
@@ -34,16 +33,16 @@ wlans_rtwn0="wlan0"
 ifconfig_wlan0="WPA SYNCDHCP"
 hald_enable="YES"
 dbus_enable="YES"
-
+```
 #~/.cshrc
-
+```
 setenv PATH ~/go/bin:${PATH}
 setenv XMODIFIERS @im=fcitx
 setenv GTK_IM_MODULE fcitx
 setenv GTK3_IM_MODULE fcitx
-
+```
 #/etc/wpa_supplicant.conf 
-
+```
 ctrl_interface=/var/run/wpa_supplicant
 eapol_version=2
 ap_scan=1
@@ -60,5 +59,4 @@ network={
 	proto=RSN
 	psk="12345678"
 }
-
-`
+```
