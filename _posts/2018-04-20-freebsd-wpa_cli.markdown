@@ -7,9 +7,9 @@ categories: computer config
 
 目前可以使用wireless-tools 或wpa_supplicant工具来配置无线网络。请记住重要的一点是，对无线网络的配置是全局性的，而非针对具体的接口。
 
-   wpa_supplicant是一个较好的选择，但缺点是它不支持所有的驱动。请浏览wpa_supplicant网站获得它所支持的驱动列表。另外，wpa_supplicant目前只能连接到那些你已经配置好ESSID的无线网络，它可以让您连接到那些使用WPA的AP。wireless-tools支持几乎所有的无线网卡和驱动，但它不能连接到那些只支持WPA的AP。
+wpa_supplicant是一个较好的选择，但缺点是它不支持所有的驱动。请浏览wpa_supplicant网站获得它所支持的驱动列表。另外，wpa_supplicant目前只能连接到那些你已经配置好ESSID的无线网络，它可以让您连接到那些使用WPA的AP。wireless-tools支持几乎所有的无线网卡和驱动，但它不能连接到那些只支持WPA的AP。
 
-    经过编译后的wpa_supplicant源程序可以看到两个主要的可执行工具：wpa_supplicant和wpa_cli。wpa_supplicant是核心程序，它和wpa_cli的关系就是服务和客户端的关系：后台运行wpa_supplicant，使用wpa_cli来搜索、设置、和连接网络。
+经过编译后的wpa_supplicant源程序可以看到两个主要的可执行工具：wpa_supplicant和wpa_cli。wpa_supplicant是核心程序，它和wpa_cli的关系就是服务和客户端的关系：后台运行wpa_supplicant，使用wpa_cli来搜索、设置、和连接网络。
 
 
 
