@@ -2,7 +2,7 @@
 name:         xuiv's blog
 tagline:      网络日志
 baseurl:      "https://xuiv.github.io"
-locale:       "zh_CN"
+locale:       "en"
 
 # Gems
 gems:
