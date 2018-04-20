@@ -1,8 +1,8 @@
 # Setup
-name:         Project or Site name (Architect Theme)
-tagline:      A responsive theme for your project on GitHub Pages
-baseurl:      ""
-locale:       "en"
+name:         xuiv's blog
+tagline:      网络使用记录
+baseurl:      "https://xuiv.github.io"
+locale:       "zh_CN"
 
 # Gems
 gems:
