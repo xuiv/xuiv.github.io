@@ -37,13 +37,13 @@ https://github.com/xuiv/xuiv.github.io/archive/master.zip
 Unzip it and use it as a regular jekyll folder.
 
 ```
-$ unzip jekyll-architect-theme-master.zip
+$ unzip xuiv.github.io-master.zip
 ```
 
 Get inside the newly extracted folder
 
 ```
-$ cd jekyll-architect-theme-master
+$ cd xuiv.github.io-master
 ```
 
 Install the dependencies
