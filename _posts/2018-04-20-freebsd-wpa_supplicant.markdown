@@ -5,13 +5,14 @@ date:   2018-04-20 15:51:00
 categories: computer config
 ---
 
-```
 手动连接wifi：
 1.启动wpa_supplicant服务
+```
 [root@linux:~]# ifconfig wlan0 up
 [root@linux:~]# /usr/sbin/wpa_supplicant -Dwext -iwlan0 -c/etc/wpa_supplicant.conf -B
-
+```
 2.启动wpa_cli
+```
 [root@linux:~]# wpa_cli
 > scan
 OK
@@ -32,8 +33,9 @@ OK
 OK
 > q
 [root@linux:~]# dhcpcd wlan0
-
+```
 开机自动连接wifi
+```
 [root@linux:~]# vi /etc/wpa_supplicant.conf
 ctrl_interface=/var/run/wpa_supplicant
 update_config=1
