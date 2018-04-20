@@ -5,6 +5,7 @@ date:   2018-04-20 15:51:00
 categories: computer config
 ---
 
+`
 #/boot/loader.conf
 
 autoboot_delay=3
@@ -59,3 +60,5 @@ network={
 	proto=RSN
 	psk="12345678"
 }
+
+`
