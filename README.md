@@ -1,3 +1,5 @@
+[xuiv's blog](http://xuiv.github.io)
+
 # Architect theme
 
 This is a [Jekyll][1] theme that is an adaptation of [@jasonlong][2]'s [Architect theme][4] on [GitHub Pages][3].
