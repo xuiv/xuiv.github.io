@@ -65,7 +65,7 @@ Some important configuration can be done in the file `_config.yml`. Please, chec
 
 ## baseurl
 
-`baseurl` parameter is required in the case the site doesn't sit on the root of the domain. For example: https://pietromenna.github.io/jekyll-architect-theme
+`baseurl` parameter is required in the case the site doesn't sit on the root of the domain. For example: https://xuiv.github.io/jekyll-architect-theme
 
 In the case above the baseurl should be set to "/jekyll-architect-theme".
 
