@@ -5,6 +5,7 @@ date:   2018-04-20 19:04:00
 categories: computer config
 ---
 
+#/etc/rc.local
 ```
 # Put your custom commands here that should be executed once
 # the system init finished. By default this file does nothing.
