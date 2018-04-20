@@ -29,7 +29,7 @@ $ sudo gem install bundler
 Download the theme
 
 ```
-https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip
+https://github.com/xuiv/xuiv.github.io/archive/master.zip
 ```
 
 Unzip it and use it as a regular jekyll folder.
@@ -74,7 +74,7 @@ For more details read about [Jekyll][1] on its web page.
 
 # Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pietromenna/jekyll-architect-theme.
+Bug reports and pull requests are welcome on GitHub at https://github.com/xuiv/xuiv.github.io.
 
 # Development
 
