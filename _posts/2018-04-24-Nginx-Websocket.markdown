@@ -127,9 +127,9 @@ server {
 
     server {
         listen       8080;
-    listen  [::]:8080;
+        listen  [::]:8080;
         server_name  x.hello-xuiv.c9.io;
-
+        #upp -L :1081 -F socks+wss://x.hello-xuiv.c9.io:443 -L tcp://:5901/:5901
 
         #charset koi8-r;
 
@@ -173,7 +173,7 @@ server {
         charset utf-8;
 
         location / {
-            proxy_pass https://blog/;
+            proxy_pass http://blog/;
         }
     }
 
@@ -182,6 +182,6 @@ server {
     }
 
     upstream blog {
-        server localhost:443;
+        server localhost:8082;
     }
 ```
