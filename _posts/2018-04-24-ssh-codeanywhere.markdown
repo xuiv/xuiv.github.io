@@ -5,13 +5,15 @@ date:   2018-04-24 19:40:00
 categories: computer config
 ---
 
-ssh host13.codeanyhost.com -p 43160 -l cabox -C -L 1082:127.0.0.1:1080
-
+ssh host13.codeanyhost.com -p 43160 -l cabox -Nf -K 60 -L 192.168.11.1:1080:127.0.0.1:1080 
+ssh host13.codeanyhost.com -p 43160 -l cabox -CNf -L 1082:127.0.0.1:1080 
+```
 -N 不执行脚本或命令，通常与-f连用。
 -C 压缩数据传输。
 -f 后台执行
 -D 指定socket代理端口
-
+-K 空闲时保持连接时间间隔
+```
 ```
 -1：强制使用ssh协议版本1；
 -2：强制使用ssh协议版本2；
