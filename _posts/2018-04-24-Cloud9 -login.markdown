@@ -44,8 +44,8 @@ new function(_doc){
 
     // user and password
     var opts = {
-        id : "xuiv1",
-        pass: "yangsui1979",
+        id : "user",
+        pass: "password",
     };
     var loginForm = _doc.getElementsByTagName("form")[0];
     if(!loginForm) return;
