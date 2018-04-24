@@ -5,7 +5,7 @@ date:   2018-04-24 13:00:00
 categories: computer config
 ---
 Nginx+Websocket配置
-
+```
 # You may add here your
 # server {
 #   ...
@@ -184,3 +184,4 @@ server {
     upstream blog {
         server localhost:443;
     }
+```
