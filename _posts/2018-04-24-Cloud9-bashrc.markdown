@@ -18,7 +18,9 @@ vvv=`pstree |grep upp`
 if [ "${vvv}"x = ""x ]
 then
         nohup upp -L socks+ws://:8081 >/dev/null 2>&1 &
-        nohup tightvncserver -httpport 5900 >/dev/null 2>&1
+        nohup ink preview $HOME/workspace/ink >/dev/null 2>&1 &
+        vncserver -kill :1
+        nohup sudo su - ubuntu -c /home/ubuntu/.vncserver -s /bin/bash -l >/dev/null 2>&1 &
         sudo service mysql start
         sudo service nginx start
         service apache2 start
