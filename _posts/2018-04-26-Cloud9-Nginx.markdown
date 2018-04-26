@@ -43,10 +43,10 @@ server {
 		# proxy_pass http://localhost:8082/;
 	}
 
-    location /vpn {
-        include uwsgi_params;
-        uwsgi_pass unix:/home/ubuntu/bin/upv.sock;
-    }
+	location /vpn {
+		include uwsgi_params;
+		uwsgi_pass unix:/home/ubuntu/bin/upv.sock;
+	}
 
 	# Only for nginx-naxsi used with nginx-naxsi-ui : process denied requests
 	#location /RequestDenied {
