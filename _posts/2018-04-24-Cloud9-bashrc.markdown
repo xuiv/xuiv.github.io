@@ -21,6 +21,9 @@ then
         nohup ddn tcp 8084 --authtoken 3oRAe8qToVpjQgDNr31qe_6xDTbqbkp2D55yrRk7F80 >/dev/null 2>&1 &
         nohup ink preview $HOME/workspace/ink >/dev/null 2>&1 &
         vncserver -kill :1
+        rm -f /home/ubuntu/.vnc/*.log
+        rm -f /tmp/.X1-lock
+        rm -f /tmp/.X11-unix/X1
         nohup sudo su - ubuntu -c /home/ubuntu/.vncserver -s /bin/bash -l >/dev/null 2>&1 &
         sudo service mysql start
         sudo service nginx start
