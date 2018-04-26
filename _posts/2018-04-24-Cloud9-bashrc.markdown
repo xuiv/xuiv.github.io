@@ -17,7 +17,8 @@ vvv=`pstree |grep upp`
 
 if [ "${vvv}"x = ""x ]
 then
-        nohup upp -L socks+ws://:8081 >/dev/null 2>&1 &
+        nohup upp -L socks+ws://:8081 -L :8084 >/dev/null 2>&1 &
+        nohup ddn tcp 8084 --authtoken 3oRAe8qToVpjQgDNr31qe_6xDTbqbkp2D55yrRk7F80 >/dev/null 2>&1 &
         nohup ink preview $HOME/workspace/ink >/dev/null 2>&1 &
         vncserver -kill :1
         nohup sudo su - ubuntu -c /home/ubuntu/.vncserver -s /bin/bash -l >/dev/null 2>&1 &
