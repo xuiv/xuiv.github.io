@@ -241,7 +241,7 @@ server {
 }
 
 upstream upp {
-	server localhost:8081;
+    server localhost:8081;
 }
 
 upstream ink {
