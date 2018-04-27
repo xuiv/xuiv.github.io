@@ -131,7 +131,7 @@ map $http_upgrade $connection_upgrade {
 
 server {
     listen       8080;
-	listen	[::]:8080;
+    listen	[::]:8080;
     server_name  x.hello-xuiv.c9.io;
 
     #charset koi8-r;
@@ -222,6 +222,23 @@ server {
     }
 }
 
+server {
+    listen       8080;
+    server_name  hello-xuiv.c9.io;
+
+    proxy_redirect     off;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header   Accept-Encoding "";
+    proxy_set_header   X-NginX-Proxy true;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+    location / {
+        proxy_pass http://blog;
+    }
+}
+    
 server {
     listen 8080;
     listen [::]:8080;
