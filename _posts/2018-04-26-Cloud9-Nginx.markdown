@@ -225,12 +225,12 @@ upstream upp {
     server localhost:8081;
 }
 
-upstream ink {
-    server localhost:8083;
+upstream blog {
+    server localhost:8082;
 }
 
-upstream blog {
-    server localhost:8443;
+upstream ink {
+    server localhost:8083;
 }
 
 upstream port {
