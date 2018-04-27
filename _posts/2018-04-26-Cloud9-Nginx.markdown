@@ -205,55 +205,19 @@ server {
 }
 
 server {
-    listen 8080;
-    listen [::]:8080;
-    server_name blog.hello-xuiv.c9.io;
-
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/blog.hello-xuiv.c9.io/fullchain.pem; 
-    ssl_certificate_key /etc/letsencrypt/live/blog.hello-xuiv.c9.io/privkey.pem;
-    ssl_session_timeout 5m;
-    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2; 
-    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-    ssl_prefer_server_ciphers on;
-    location / {
-        proxy_pass https://blog; 
-        client_max_body_size 35m;
-    }
-}
-
-server {
     listen       8080;
     server_name  hello-xuiv.c9.io;
 
-    proxy_redirect     off;
+    proxy_redirect   off;
     proxy_set_header Host $host;
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-Proto $scheme;
-    proxy_set_header   Accept-Encoding "";
-    proxy_set_header   X-NginX-Proxy true;
+    proxy_set_header Accept-Encoding "";
+    proxy_set_header X-NginX-Proxy true;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
     location / {
         proxy_pass http://blog;
-    }
-}
-    
-server {
-    listen 8080;
-    listen [::]:8080;
-    server_name blog.hello-xuiv.c9users.io;
-
-    ssl on;
-    ssl_certificate /etc/letsencrypt/live/blog.hello-xuiv.c9users.io/fullchain.pem; 
-    ssl_certificate_key /etc/letsencrypt/live/blog.hello-xuiv.c9users.io/privkey.pem;
-    ssl_session_timeout 5m;
-    ssl_protocols  TLSv1 TLSv1.1 TLSv1.2; 
-    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-    ssl_prefer_server_ciphers on;
-    location / {
-        proxy_pass https://blog; 
-        client_max_body_size 35m;
     }
 }
 
