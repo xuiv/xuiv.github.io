@@ -19,7 +19,7 @@ if c.InboundConfig.Port == 0 && c.Port > 0 {
 	c.InboundConfig.Port = c.Port
 }
 ```
-在其下添加：
+在其后添加：
 ```
 // set listenport use option -port
 if core.ListenPort > 0 {
