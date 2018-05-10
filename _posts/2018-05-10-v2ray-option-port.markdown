@@ -60,7 +60,7 @@ if *plugin {
 在其后添加：
 ```
 if len(*listenPort) > 0 {
-        port, err := strconv.ParseInt(*listenPort, 10, 16)
+        port, err := strconv.ParseInt(*listenPort, 10, 32)
         if err == nil {
                 core.ListenPort = uint16(port)
         }
