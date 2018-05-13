@@ -31,19 +31,19 @@ $ sudo gem install bundler
 Download the theme
 
 ```
-https://github.com/xuiv/xuiv.github.io/archive/master.zip
+https://github.com/pietromenna/jekyll-architect-theme/archive/master.zip
 ```
 
 Unzip it and use it as a regular jekyll folder.
 
 ```
-$ unzip xuiv.github.io-master.zip
+$ unzip jekyll-architect-theme-master.zip
 ```
 
 Get inside the newly extracted folder
 
 ```
-$ cd xuiv.github.io-master
+$ cd jekyll-architect-theme-master
 ```
 
 Install the dependencies
@@ -65,7 +65,7 @@ Some important configuration can be done in the file `_config.yml`. Please, chec
 
 ## baseurl
 
-`baseurl` parameter is required in the case the site doesn't sit on the root of the domain. For example: https://xuiv.github.io/jekyll-architect-theme
+`baseurl` parameter is required in the case the site doesn't sit on the root of the domain. For example: https://pietromenna.github.io/jekyll-architect-theme
 
 In the case above the baseurl should be set to "/jekyll-architect-theme".
 
@@ -76,7 +76,7 @@ For more details read about [Jekyll][1] on its web page.
 
 # Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/xuiv/xuiv.github.io.
+Bug reports and pull requests are welcome on GitHub at https://github.com/pietromenna/jekyll-architect-theme.
 
 # Development
 
