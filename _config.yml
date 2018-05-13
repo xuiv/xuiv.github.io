@@ -1,7 +1,7 @@
 # Setup
 name:         xuiv's blog
 tagline:      网络日志
-baseurl:      "https://xuiv.github.io"
+baseurl:      "https://xuiv.ga"
 locale:       "en"
 
 # Gems
