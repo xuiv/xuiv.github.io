@@ -1,4 +1,4 @@
-[xuiv's blog](http://xuiv.github.io)
+[xuiv's blog](https://xuiv.ga)
 
 # Architect theme
 
