@@ -36,3 +36,17 @@ mysql> quit
 第三步：
 
 用新改的root和密码登录查看。
+
+Now create this mysql database. Open a temporary file with mysql commands wordpress.sql and write the following lines:
+```
+CREATE DATABASE wordpress;
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
+ON wordpress.*
+TO wordpress@localhost
+IDENTIFIED BY 'yourpasswordhere';
+FLUSH PRIVILEGES;
+```
+Execute these commands.
+```
+cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
+```
