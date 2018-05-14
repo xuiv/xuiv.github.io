@@ -4,7 +4,7 @@ title:  "golang字符串比较的坑"
 date:   2018-05-15 06:30:00
 categories: computer config
 ---
-字符串明明是一样的，比较却不相等，打印字符长度发现不同，原来是lpass前面有一个字节的数字，示列代码：
+字符串明明是一样的，比较却不相等，打印字符串长度发现不同，原来是lpass前面有一个字节的数字，示列代码：
 {% highlight golang %}
 package main
 
