@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "GAE proxy 代码备份"
+title:  "GAE goproxy代码备份"
 date:   2018-05-15 14:09:00
 categories: computer config
 ---
