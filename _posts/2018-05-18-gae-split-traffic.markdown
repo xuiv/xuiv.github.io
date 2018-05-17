@@ -19,3 +19,24 @@ To split traffic across all services:
 ```
   $ gcloud app services set-traffic --splits 1=.5,20180518t071934=.5
 ```
+preview:
+```
+  $ goapp serve app.yaml
+```
+app.yaml:
+```
+runtime: go
+api_version: go1
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /(.*\.(gif|png|jpg))$
+  static_files: static/\1
+  upload: static/.*\.(gif|png|jpg)$
+
+- url: /.*
+  script: _go_app
+```
+https://cloud.google.com/appengine/docs/standard/go/config/appref
