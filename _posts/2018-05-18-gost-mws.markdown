@@ -15,10 +15,11 @@ B---连接A
 C通过A的内网进行数据转发.
 
 比如
-
+```
 A:   gost -F=mws://2.2.2.2:80?key=pass&tunnel=true
 B:   gost -L=mws://:80?tunnel=true
 C:   gost -L=:1080 -F=mws://2.2.2.2:80?key=pass&tunnel=true
+```
 目的,可以让几个内网的机子连接一个mws服务端,
 这一个mws服务端根据key匹配多个内网转发数据,
 
