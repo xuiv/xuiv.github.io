@@ -5,7 +5,7 @@ date:   2018-05-17 18:43:00
 categories: computer config
 ---
 ```
-git config –global http.proxy “127.0.0.1:1080”
+git config –global http.proxy "127.0.0.1:1080"
 go get …
 ```
 或者可以在go get的同时指定代理：
