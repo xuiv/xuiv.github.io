@@ -1,26 +1,18 @@
 ---
 layout: post
-title:  "mws穿透"
+title:  "GAE路由分支"
 date:   2018-05-18 07:08:00
 categories: computer config
 ---
-添加反向代理
-
-A----内网---可以连接B (10.0.0.1)
-B----外网---C可以连 (2.2.2.2)
-
-C---连接B
-B---连接A
-
-C通过A的内网进行数据转发.
-
-比如
+To send all traffic to '20180518t071934' of service 'default', run:
 ```
-A:   gost -F=mws://2.2.2.2:80?key=pass&tunnel=true
-B:   gost -L=mws://:80?tunnel=true
-C:   gost -L=:1080 -F=mws://2.2.2.2:80?key=pass&tunnel=true
+  $ gcloud app services set-traffic default --splits 20180518t071934=1
 ```
-目的,可以让几个内网的机子连接一个mws服务端,
-这一个mws服务端根据key匹配多个内网转发数据,
-
-你需要这种,本地不监听端口
+To split traffic evenly between '1' and '20180518t071934' of service 'default', run:
+```
+  $ gcloud app services set-traffic default --splits 1=.5,20180518t071934=.5
+```
+To split traffic across all services:
+```
+  $ gcloud app services set-traffic --splits 1=.5,20180518t071934=.5
+```
