@@ -5,7 +5,7 @@ date:   2018-05-18 07:08:00
 categories: computer config
 ---
 ```
-gcloud app versions list
+  $ gcloud app versions list
 ```
 To send all traffic to '20180518t071934' of service 'default', run:
 ```
