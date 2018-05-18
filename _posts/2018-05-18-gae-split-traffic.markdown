@@ -23,6 +23,10 @@ preview:
 ```
   $ goapp serve app.yaml
 ```
+deploy:
+```
+  $ goapp deploy -application proxy-xuiv1 -version 0
+```
 app.yaml:
 ```
 runtime: go
