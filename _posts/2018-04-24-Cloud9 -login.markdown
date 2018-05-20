@@ -13,7 +13,9 @@ categories: computer config
 // @description    c9 login
 // @version 0.0.1.20180423135900
 // ==/UserScript==
-new function(_doc){
+(function(_doc) {
+    'use strict';
+
     // user and password
     var opts = {
         id : "user",
@@ -21,11 +23,10 @@ new function(_doc){
     };
     var loginForm = _doc.getElementsByTagName("form")[0];
     if(!loginForm) return;
-    loginForm.elements.namedItem("username").value = opts.id;
-    loginForm.elements.namedItem("password").value = opts.pass;
-    loginForm.submit();
-
-}(document);
+	loginForm.elements.namedItem("username").value = opts.id;
+	loginForm.elements.namedItem("password").value = opts.pass;
+	loginForm.submit();
+})(document);
 ```
 
 ```
