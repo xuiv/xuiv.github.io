@@ -55,3 +55,26 @@ categories: computer config
     loginForm.submit();
 })(document);
 ```
+
+```
+// ==UserScript==
+// @name           ca auto login
+// @namespace      http://xuiv.ga/
+// @include        https://codeanywhere.com/login
+// @description    ca login
+// @version 0.0.1.20180521
+// ==/UserScript==
+(function(_doc) {
+    // user and password
+    var opts = {
+        id: "user",
+        pass: "password",
+    };
+    var loginForm = _doc.getElementsByTagName("form")[0];
+    if (!loginForm) return;
+    loginForm.elements.namedItem("login_email").value = opts.id;
+    loginForm.elements.namedItem("login_password").value = opts.pass;
+    loginForm.submit();
+
+})(document);
+```
