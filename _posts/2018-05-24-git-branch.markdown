@@ -42,3 +42,33 @@ error: The branch 'testing' is not fully merged.
 If you are sure you want to delete it, run 'git branch -D testing'.
 ```
 如果真的想要删除分支并丢掉那些工作，如同帮助信息里所指出的，可以使用 -D 选项强制删除它。
+
+
+查看项目的分支(包括本地和远程) 
+
+命令行 : $ git branch -a
+
+查看远程分支
+
+命令行 : $ git branch -r
+
+新建本地分支
+
+命令行 : $ git branch -b newbranch
+
+下载远程分支
+
+命令行 : $ git checkout -b newbranch origin/newbranch
+
+删除本地分支 
+
+命令行 : $ git branch -d <BranchName>
+
+删除远程分支 
+
+命令行 : $ git push origin --delete <BranchName>
+
+查看删除后分支
+
+命令行 : $ git branch -a
+
