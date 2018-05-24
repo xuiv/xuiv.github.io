@@ -59,6 +59,7 @@ If you are sure you want to delete it, run 'git branch -D testing'.
 下载远程分支
 
 命令行 : $ git checkout -b newbranch origin/newbranch
+
 命令行 : $ git fetch newbranch origin:newbranch && git checkout newbranch
 
 删除本地分支 
