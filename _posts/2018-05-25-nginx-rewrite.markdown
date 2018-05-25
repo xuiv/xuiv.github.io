@@ -92,16 +92,19 @@ log_format     main        '$remote_addr - $remote_user [$time_local] "$request"
 ```
 main表示给后面定义的日志个数取了个名为main的名称，便于在access_log指令中引用
 上面的log_format打印出来的日志形如
+```
  111.22.33.44 - - [10/Jan/2001:02:14:14 +0200] "GET / HTTP/1.1" 200 1234 "http://www.fromserver.com/from.htm" "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)"
+ ```
 对比日志格式和输出的结果可以发现，日志格式用一对单引号包起来，多个日志格式段用可以放在不同的行，最后用分号(;)结尾
 单引号中的双引号("),空白符，中括号([)等字符原样输出，比较长的字符串通常用双引号(")包起来，看起来不容易更加清楚，$开始的变量会替换为真实的值
-
+```
 $remote_user 为-表示没有值
 access_log 指令示例
 access_log  /home/example/nginx/logs/access.log  main;
 /home/example/nginx/logs/access.log表示nginx日志将输出到该文件，每条日志内容如main定义
-
+```
 多目录转成参数
+```
 abc.domian.com/sort/2 => abc.domian.com/index.php?act=sort&name=abc&id=2
 
 if ($host ~* (.*)\.domain\.com) {
@@ -117,6 +120,7 @@ set $sub_name $1;
 #rewrite 第一个参数最后的\/? 表示最后可以带/也可以不带/
 rewrite ^/sort\/(\d+)\/?$ /index.php?act=sort&name=$sub_name&id=$1 last;
 }
+```
 待验证问题：
 
 if ($host ~* (.*)\.domain\.co) 
@@ -126,13 +130,15 @@ if ($host ~* (.*)\.domain\.co)
 要排除.com需要在模式后加$符号，即修改为if ($host ~* (.*)\.domain\.co$) 
 
 目录对换
+```
 /123456/xxxx -> /xxxx?id=123456
 
 rewrite ^/(\d+)/(.+)/ /$2?id=$1 last;
+```
 我自己写的是这样的
-
+```
         rewrite ^/\/(\d+)\/(\w+)\/? /$2?id=$1 last;
-
+```
 ‘.’匹配任意单个字符，.+则匹配至少包含一个字符的任意字符串，给出的结果其实是将第一级目录放到之后目录的后面
 
 /123456/abc/def/ rewrite后结果为/abc/def?id=123456
@@ -142,15 +148,16 @@ rewrite ^/(\d+)/(.+)/ /$2?id=$1 last;
 
 
 例如下面设定nginx在用户使用ie浏览器访问的时候，重定向到/nginx-ie目录下：
-
+```
 if ($http_user_agent ~ MSIE) {
 # ~ 区分大小写匹配
 rewrite ^(.*)$ /nginx-ie/$1 break;
 }
+```
 下面是 $http_user_agent取值的一个例子
-
+```
 "$http_user_agent" "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; InfoPath.3; .NET4.0E)"
-
+```
 上面的例子是用Mozilla浏览器访问，但是仍然包含MSIE子串，因此，上面的rewrite规则应该是不严格的，应该用if ($http_user_agent ~ ^MSIE)，限定以 MSIE开头更加严格
 
 目录自动加“/”
