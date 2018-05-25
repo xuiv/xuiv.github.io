@@ -122,9 +122,9 @@ rewrite ^/sort\/(\d+)\/?$ /index.php?act=sort&name=$sub_name&id=$1 last;
 }
 ```
 待验证问题：
-
+```
 if ($host ~* (.*)\.domain\.co) 
-
+```
 是说 不区分大小写的情况下，$host中是否包含(.*)\.domain\.co模式，因此$host=abc.domain.com也算匹配模式
 
 要排除.com需要在模式后加$符号，即修改为if ($host ~* (.*)\.domain\.co$) 
@@ -173,6 +173,7 @@ Location 指令
 是用来为匹配的 URI 进行配置，URI 即语法中的"/uri/"，可以是字符串或正则表达式。但如果要使用正则表达式，则必须指定前缀。
 
 我的理解是：如果URI中包含某个模式，则进行后面的处理。
+
 基本语法
 ```
 location [ =|~|~*|^~|@ ] /uri/ { … }
@@ -232,19 +233,31 @@ deny all;
 }
 ```
 expires
-语法： expires [time|epoch|max|off]
-默认值： expires off
-作用域： http, server, location
-该指令可以控制HTTP应答中的“Expires”和“Cache-Control”的头标，（起到控制页面缓存的作用）。可以在time值中使用正数或负数。“Expires”头标的值将通过当前系统时间加上设定的 time 值来获得。
-epoch 指定“Expires”的值为 1 January, 1970, 00:00:01 GMT。
-max 指定“Expires”的值为 31 December 2037 23:59:59 GMT，“Cache-Control”的值为10年。
--1 指定“Expires”的值为 服务器当前时间 -1s,即永远过期
-“Cache-Control”头标的值由指定的时间来决定：
-    负数：Cache-Control: no-cache
-    正数或零：Cache-Control: max-age = #, # 为指定时间的秒数s。其他的单位有d（天），h（小时）
 
+语法： expires [time|epoch|max|off]
+
+默认值： expires off
+
+作用域： http, server, location
+
+该指令可以控制HTTP应答中的“Expires”和“Cache-Control”的头标，（起到控制页面缓存的作用）。可以在time值中使用正数或负数。“Expires”头标的值将通过当前系统时间加上设定的 time 值来获得。
+
+epoch 指定“Expires”的值为 1 January, 1970, 00:00:01 GMT。
+
+max 指定“Expires”的值为 31 December 2037 23:59:59 GMT，“Cache-Control”的值为10年。
+
+-1 指定“Expires”的值为 服务器当前时间 -1s,即永远过期
+
+“Cache-Control”头标的值由指定的时间来决定：
+
+    负数：Cache-Control: no-cache
+    
+    正数或零：Cache-Control: max-age = #, # 为指定时间的秒数s。其他的单位有d（天），h（小时）
+    
 "off" 表示不修改“Expires”和“Cache-Control”的值
+
 控制图片等过期时间为30天，这个时间可以设置的更长。具体视情况而定
+
 ```
 location ~ \.(gif|jpg|jpeg|png|bmp|ico)$ {
 
