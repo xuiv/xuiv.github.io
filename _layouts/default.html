@@ -7,13 +7,18 @@
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stylesheets/stylesheet.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stylesheets/pygment_trac.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/stylesheets/print.css" media="print" />
+    <script> 
+    document.getElementById('title').onclick = function(){ 
+    location.href='https://xuiv.ga/';  
+    }; 
+    </script> 
     <title> {{ page.title }} </title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1> {{ site.name }} </h1>
+        <h1> <span id='title'> {{ site.name }} </span> </h1>
         <h2> <span id='title2' onclick="location.href='https://xuiv.ga/'"> 网络日志 </span> </h2>
         <a href="https://github.com/xuiv?tab=repositories" class="button"><small>查看</small> GitHub</a>
       </div>
