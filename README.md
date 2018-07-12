@@ -4,7 +4,7 @@
 
 [xuiv's second blog](https://blog.xuiv.ga)
 
-[xuiv's second forum](https://wordpress.xuiv.ga/fluxbb)
+[xuiv's second forum](https://wordpress.xuiv.ga/forum)
 
 [xuiv's third blog](https://wordpress.xuiv.ga)
 
