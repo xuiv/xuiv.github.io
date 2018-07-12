@@ -4,7 +4,7 @@
 
 [xuiv's second blog](https://blog.xuiv.ga)
 
-[xuiv's third blog](https://http://xuiv.zz.mu)
+[xuiv's third blog](https://xuiv.zz.mu)
 
 # Architect theme
 
