@@ -4,7 +4,9 @@
 
 [xuiv's second blog](https://blog.xuiv.ga)
 
-[xuiv's third blog](https://xuiv.zz.mu)
+[xuiv's second forum](http://xuiv.zz.mu/fluxbb)
+
+[xuiv's third blog](http://xuiv.zz.mu)
 
 # Architect theme
 
