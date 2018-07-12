@@ -4,6 +4,8 @@
 
 [xuiv's second blog](https://blog.xuiv.ga)
 
+[xuiv's third blog](https://http://xuiv.zz.mu)
+
 # Architect theme
 
 This is a [Jekyll][1] theme that is an adaptation of [@jasonlong][2]'s [Architect theme][4] on [GitHub Pages][3].
