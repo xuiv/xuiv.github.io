@@ -1,6 +1,6 @@
 [xuiv's blog](https://xuiv.ga)
 
-[xuiv's forum](http://www.xuiv.ga)
+[xuiv's forum](https://www.xuiv.ga)
 
 [xuiv's second blog](https://blog.xuiv.ga)
 
