@@ -8,7 +8,7 @@
 
 [xuiv's third blog](https://wordpress.xuiv.ga)
 
-[xuiv's forth forum](https://forum.xuiv.ga)
+[xuiv's fourth forum](https://forum.xuiv.ga)
 
 [xuiv's fifth forum](https://www.xuivgo.ga)
 
