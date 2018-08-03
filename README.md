@@ -8,6 +8,16 @@
 
 [xuiv's third blog](https://wordpress.xuiv.ga)
 
+[xuiv's forth forum](https://forum.xuiv.ga)
+
+[xuiv's fifth forum](https://www.xuivgo.ga)
+
+[Chatter Gaily](https://chatter.gaily.ga)
+
+[Gaily Forum](https://www.gaily.ga)
+
+
+
 # Architect theme
 
 This is a [Jekyll][1] theme that is an adaptation of [@jasonlong][2]'s [Architect theme][4] on [GitHub Pages][3].
