@@ -8,9 +8,9 @@
 
 [xuiv's third blog](https://wordpress.xuiv.ga)
 
-[xuiv's fourth forum](https://forum.xuiv.ga)
+[xuiv's third forum](https://forum.xuiv.ga)
 
-[xuiv's fifth forum](https://www.xuivgo.ga)
+[xuiv's fourth forum](https://www.xuivgo.ga)
 
 [Chatter Gaily](https://chatter.gaily.ga)
 
