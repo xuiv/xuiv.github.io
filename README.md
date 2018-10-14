@@ -10,8 +10,6 @@
 
 [xuiv's third forum](https://forum.xuiv.ga)
 
-[xuiv's fourth forum](https://www.xuivgo.ga)
-
 [Chatter Gaily](https://chatter.gaily.ga)
 
 [Gaily Forum](https://www.gaily.ga)
