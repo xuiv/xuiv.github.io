@@ -1,20 +1,3 @@
-[xuiv's blog](https://xuiv.ga)
-
-[xuiv's forum](https://www.xuiv.ga)
-
-[xuiv's second blog](https://blog.xuiv.ga)
-
-[xuiv's second forum](https://wordpress.xuiv.ga/forum)
-
-[xuiv's third blog](https://wordpress.xuiv.ga)
-
-[xuiv's third forum](https://forum.xuiv.ga)
-
-[Chatter Gaily](https://chatter.gaily.ga)
-
-[Gaily Forum](https://www.gaily.ga)
-
-
 
 # Architect theme
 
