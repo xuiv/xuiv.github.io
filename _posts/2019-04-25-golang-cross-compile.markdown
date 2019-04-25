@@ -5,7 +5,7 @@ date:   2019-04-25 19:19:56
 categories: computer config
 ---
 
-{% highlight bash %}
+{% highlight sh %}
 
 env GOOS=windows GOARCH=amd64 go build -a -ldflags="-w -s"
 
