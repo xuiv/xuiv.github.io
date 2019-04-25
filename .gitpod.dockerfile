@@ -192,7 +192,7 @@ RUN sudo git clone https://github.com/novnc/noVNC.git /opt/novnc \
 
 RUN __GOST_VERSION__="2.7.2" \
  && curl -L https://github.com/ginuerzh/gost/releases/download/v${__GOST_VERSION__}/gost_${__GOST_VERSION__}_linux_amd64.tar.gz | tar xz \
- && mv gost_${__GOST_VERSION__}_linux_amd64/gost /usr/bin/ \
+ && sudo mv gost_${__GOST_VERSION__}_linux_amd64/gost /usr/bin/ \
  && sudo chmod +x /usr/bin/gost \
  && rm -rf gost_${__GOST_VERSION__}_linux_amd64
 
