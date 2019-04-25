@@ -184,7 +184,7 @@ RUN bash -lc "cargo install cargo-watch"
 # Install Xvfb, JavaFX-helpers and Openbox window manager
 RUN sudo apt-get update \
     && sudo apt-get install -yq xvfb x11vnc xterm openjfx libopenjfx-java mousepad firefox deluge deluge-gtk megatools fonts-droid-fallback fluxbox \
-    && sudo apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
+    && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/* /tmp/*
 
 # Install novnc
 RUN sudo git clone https://github.com/novnc/noVNC.git /opt/novnc \
