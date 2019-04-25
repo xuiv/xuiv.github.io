@@ -20,6 +20,4 @@ workspaceLocation: "go/src/github.com/xuiv/xuiv.github.io"
 tasks:
   - init: >
       clear
-github:
-    prebuilds:
-        pullRequestsFromForks: true
+
