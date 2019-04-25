@@ -5,6 +5,8 @@ date:   2019-04-25 19:19:56
 categories: computer config
 ---
 
+{% highlight bash %}
+
 env GOOS=windows GOARCH=amd64 go build -a -ldflags="-w -s"
 
 env GOOS=linux GOARCH=amd64 go build -a -ldflags="-w -s"
@@ -25,3 +27,5 @@ cd /tmp/ndk-root && tar jxf arm-linux-androideabi-4.8.tar.bz2
 cd /workspace/go/src/github.com/xuiv/gost-heroku
 export PATH=/tmp/ndk-root/arm-linux-androideabi-4.8/bin:$PATH
 env GOOS=android GOARCH=arm GOARM=7 CGO_ENABLED=1 CC=arm-linux-androideabi-gcc go build -a -ldflags="-w -s"
+
+{% endhighlight %}
