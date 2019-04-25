@@ -2,7 +2,6 @@
 layout: post
 title:  "golang交叉编译"
 date:   2019-04-25 19:19:56
-hash:   "kCorjWvIGAcuA%lhZdQ28rrUIfZ"
 categories: computer config
 ---
 
