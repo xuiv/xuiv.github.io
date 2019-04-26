@@ -43,7 +43,7 @@ RUN echo "export DISPLAY=:0" >> ~/.bashrc \
  && echo "  $WINDOW_MANAGER &" >> ~/.bashrc \
  && echo "  mousepad &" >> ~/.bashrc \
  && echo "  firefox &" >> ~/.bashrc \
- && echo "  deluge-gtk" >> ~/.bashrc \
+ && echo "  deluge-gtk &" >> ~/.bashrc \
  && echo "  [ ! -e /tmp/.X0-lock ] && (x11vnc -localhost -shared -display :\$DISP -forever -rfbport \${VNC_PORT} -bg -o \"/tmp/x11vnc-\${DISP}.log\")" >> ~/.bashrc \
  && echo "  cd /opt/novnc/utils && ./launch.sh --vnc \"localhost:\${VNC_PORT}\" --listen \"\${NOVNC_PORT}\" &" >> ~/.bashrc \
  && echo "fi" >> ~/.bashrc
