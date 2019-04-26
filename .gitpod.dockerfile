@@ -12,7 +12,9 @@ ENV WINDOW_MANAGER="fluxbox"
 
 # Install novnc
 RUN git clone https://github.com/novnc/noVNC.git /opt/novnc \
-    && git clone https://github.com/novnc/websockify /opt/novnc/utils/websockify
+ && git clone https://github.com/novnc/websockify /opt/novnc/utils/websockify \
+ && curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/novnc-index.html \
+ && mv novnc-index.html /opt/novnc/index.html
 
 RUN curl -O -L https://github.com/xuiv/gost-heroku/releases/download/1.0/gost-linux \
  && curl -O -L https://github.com/xuiv/v2ray-heroku/releases/download/1.0/v2ray-linux \
@@ -24,25 +26,27 @@ RUN curl -O -L https://github.com/xuiv/gost-heroku/releases/download/1.0/gost-li
  && chmod +x /usr/bin/v2ray-linux \
  && chmod 644 /usr/bin/server.json
 
-RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/novnc-index.html \
- && curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/start-vnc-session.sh \
- && mv novnc-index.html /opt/novnc/index.html \
- && mv start-vnc-session.sh /usr/bin/ \
- && chmod +x /usr/bin/start-vnc-session.sh \
- && sed -ri "s/1920x1080/1366x830/g" /usr/bin/start-vnc-session.sh
-
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
 # server is running on screen 0, and if not starts Xvfb, x11vnc and novnc.
-RUN echo "export DISPLAY=:0" >> ~/.bashrc
-
-RUN echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc
-RUN echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc
-RUN echo "then" >> ~/.bashrc
-RUN echo "  nohup gost-linux -L socks+ws://:1081 >/dev/null 2>&1 &" >> ~/.bashrc
-RUN echo "  nohup v2ray-linux -port 1082 -config /usr/bin/server.json >/dev/null 2>&1 &" >> ~/.bashrc
-RUN echo "[ ! -e /tmp/.X0-lock ] && (nohup su - gitpod -c /usr/bin/start-vnc-session.sh -s /bin/bash -l >/dev/null 2>&1 &)" >> ~/.bashrc
-RUN echo "fi" >> ~/.bashrc
+RUN echo "export DISPLAY=:0" >> ~/.bashrc \
+ && echo "DISP=\${DISPLAY:1}" >> ~/.bashrc \
+ && echo "VNC_PORT=\$(expr 5900 + \$DISP)" >> ~/.bashrc \
+ && echo "NOVNC_PORT=\$(expr 6080 + \$DISP)" >> ~/.bashrc \
+ && echo "" >> ~/.bashrc \
+ && echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc \
+ && echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc \
+ && echo "then" >> ~/.bashrc \
+ && echo "  nohup gost-linux -L socks+ws://:1081 >/dev/null 2>&1 &" >> ~/.bashrc \
+ && echo "  nohup v2ray-linux -port 1082 -config /usr/bin/server.json >/dev/null 2>&1 &" >> ~/.bashrc \
+ && echo "  Xvfb -screen \$DISP 1366x830x16 -ac -pn -noreset &" >> ~/.bashrc \
+ && echo "  $WINDOW_MANAGER &" >> ~/.bashrc \
+ && echo "  mousepad &" >> ~/.bashrc \
+ && echo "  firefox &" >> ~/.bashrc \
+ && echo "  deluge-gtk" >> ~/.bashrc \
+ && echo "  [ ! -e /tmp/.X0-lock ] && (x11vnc -localhost -shared -display :\$DISP -forever -rfbport \${VNC_PORT} -bg -o \"/tmp/x11vnc-\${DISP}.log\")" >> ~/.bashrc \
+ && echo "  cd /opt/novnc/utils && ./launch.sh --vnc \"localhost:\${VNC_PORT}\" --listen \"\${NOVNC_PORT}\" &" >> ~/.bashrc \
+ && echo "fi" >> ~/.bashrc
 
 ### checks ###
 # no root-owned files in the home directory
