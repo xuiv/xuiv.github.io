@@ -12,9 +12,7 @@ ENV WINDOW_MANAGER="fluxbox"
 
 # Install novnc
 RUN git clone https://github.com/novnc/noVNC.git /opt/novnc \
- && git clone https://github.com/novnc/websockify /opt/novnc/utils/websockify \
- && curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/novnc-index.html \
- && mv novnc-index.html /opt/novnc/index.html
+    && git clone https://github.com/novnc/websockify /opt/novnc/utils/websockify
 
 RUN curl -O -L https://github.com/xuiv/gost-heroku/releases/download/1.0/gost-linux \
  && curl -O -L https://github.com/xuiv/v2ray-heroku/releases/download/1.0/v2ray-linux \
@@ -26,26 +24,27 @@ RUN curl -O -L https://github.com/xuiv/gost-heroku/releases/download/1.0/gost-li
  && chmod +x /usr/bin/v2ray-linux \
  && chmod 644 /usr/bin/server.json
 
+RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/novnc-index.html \
+ && curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/master/full-vnc/start-vnc-session.sh \
+ && mv novnc-index.html /opt/novnc/index.html \
+ && mv start-vnc-session.sh /usr/bin/ \
+ && chmod +x /usr/bin/start-vnc-session.sh \
+ && sed -ri "s/1920x1080/1366x830/g" /usr/bin/start-vnc-session.sh \
+ && sed -ri "/WINDOW_MANAGER \&/a\mousepad \&" /usr/bin/start-vnc-session.sh \
+ && sed -ri "/WINDOW_MANAGER \&/a\firefox \&" /usr/bin/start-vnc-session.sh \
+ && sed -ri "/WINDOW_MANAGER \&/a\deluge-gtk \&" /usr/bin/start-vnc-session.sh
+
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
 # server is running on screen 0, and if not starts Xvfb, x11vnc and novnc.
 RUN echo "export DISPLAY=:0" >> ~/.bashrc \
- && echo "DISP=\${DISPLAY:1}" >> ~/.bashrc \
- && echo "VNC_PORT=\$(expr 5900 + \$DISP)" >> ~/.bashrc \
- && echo "NOVNC_PORT=\$(expr 6080 + \$DISP)" >> ~/.bashrc \
  && echo "" >> ~/.bashrc \
  && echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc \
  && echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc \
  && echo "then" >> ~/.bashrc \
  && echo "  nohup gost-linux -L socks+ws://:1081 >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  nohup v2ray-linux -port 1082 -config /usr/bin/server.json >/dev/null 2>&1 &" >> ~/.bashrc \
- && echo "  Xvfb -screen \$DISP 1366x830x16 -ac -pn -noreset 2>&1 &" >> ~/.bashrc \
- && echo "  $WINDOW_MANAGER 2>&1 &" >> ~/.bashrc \
- && echo "  mousepad 2>&1 &" >> ~/.bashrc \
- && echo "  firefox 2>&1 &" >> ~/.bashrc \
- && echo "  deluge-gtk 2>&1 &" >> ~/.bashrc \
- && echo "  [ ! -e /tmp/.X0-lock ] && (x11vnc -localhost -shared -display :\$DISP -forever -rfbport \${VNC_PORT} -bg -o \"/tmp/x11vnc-\${DISP}.log\" 2>&1 &)" >> ~/.bashrc \
- && echo "  cd /opt/novnc/utils && ./launch.sh --vnc \"localhost:\${VNC_PORT}\" --listen \"\${NOVNC_PORT}\" 2>&1 &" >> ~/.bashrc \
+ && echo "  [ ! -e /tmp/.X0-lock ] && (nohup /usr/bin/start-vnc-session.sh &> /tmp/display-\${DISPLAY}.log >/dev/null 2>&1 &)" >> ~/.bashrc \
  && echo "fi" >> ~/.bashrc
 
 ### checks ###
