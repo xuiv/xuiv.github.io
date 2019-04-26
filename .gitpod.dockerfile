@@ -39,13 +39,13 @@ RUN echo "export DISPLAY=:0" >> ~/.bashrc \
  && echo "then" >> ~/.bashrc \
  && echo "  nohup gost-linux -L socks+ws://:1081 >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  nohup v2ray-linux -port 1082 -config /usr/bin/server.json >/dev/null 2>&1 &" >> ~/.bashrc \
- && echo "  Xvfb -screen \$DISP 1366x830x16 -ac -pn -noreset &" >> ~/.bashrc \
- && echo "  $WINDOW_MANAGER &" >> ~/.bashrc \
- && echo "  mousepad &" >> ~/.bashrc \
- && echo "  firefox &" >> ~/.bashrc \
- && echo "  deluge-gtk &" >> ~/.bashrc \
- && echo "  [ ! -e /tmp/.X0-lock ] && (x11vnc -localhost -shared -display :\$DISP -forever -rfbport \${VNC_PORT} -bg -o \"/tmp/x11vnc-\${DISP}.log\")" >> ~/.bashrc \
- && echo "  cd /opt/novnc/utils && ./launch.sh --vnc \"localhost:\${VNC_PORT}\" --listen \"\${NOVNC_PORT}\" &" >> ~/.bashrc \
+ && echo "  Xvfb -screen \$DISP 1366x830x16 -ac -pn -noreset 2>&1 &" >> ~/.bashrc \
+ && echo "  $WINDOW_MANAGER 2>&1 &" >> ~/.bashrc \
+ && echo "  mousepad 2>&1 &" >> ~/.bashrc \
+ && echo "  firefox 2>&1 &" >> ~/.bashrc \
+ && echo "  deluge-gtk 2>&1 &" >> ~/.bashrc \
+ && echo "  [ ! -e /tmp/.X0-lock ] && (x11vnc -localhost -shared -display :\$DISP -forever -rfbport \${VNC_PORT} -bg -o \"/tmp/x11vnc-\${DISP}.log\" 2>&1 &)" >> ~/.bashrc \
+ && echo "  cd /opt/novnc/utils && ./launch.sh --vnc \"localhost:\${VNC_PORT}\" --listen \"\${NOVNC_PORT}\" 2>&1 &" >> ~/.bashrc \
  && echo "fi" >> ~/.bashrc
 
 ### checks ###
