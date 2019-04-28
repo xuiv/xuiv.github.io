@@ -28,4 +28,10 @@ cd /workspace/go/src/github.com/xuiv/gost-heroku
 export PATH=/tmp/ndk-root/arm-linux-androideabi-4.8/bin:$PATH
 env GOOS=android GOARCH=arm GOARM=7 CGO_ENABLED=1 CC=arm-linux-androideabi-gcc go build -a -ldflags="-w -s"
 
+curl -O -L https://downloads.openwrt.org/releases/17.01.6/targets/ramips/mt7620/lede-sdk-17.01.6-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64.tar.xz
+xz -d lede-sdk-17.01.6-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64.tar.xz
+tar xf lede-sdk-17.01.6-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64.tar
+export PATH=/workspace/go/lede-sdk-17.01.6-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64/staging_dir/toolchain-mipsel_24kc_gcc-5.4.0_musl-1.1.16/bin:$PATH
+export STAGING_DIR=/workspace/go/lede-sdk-17.01.6-ramips-mt7620_gcc-5.4.0_musl-1.1.16.Linux-x86_64/staging_dir/
+env GOOS=linux GOARCH=mipsle CGO_ENABLED=1 CC=mipsel-openwrt-linux-musl-gcc go build -a -ldflags="-w -s"
 {% endhighlight %}
