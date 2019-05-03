@@ -1,8 +1,8 @@
 # My Web Site
 
-[日志](https://www.tianmen.ga/)
-[笔记](https://xuiv.github.io/)
-[闲聊](https://forum.tianmen.ga/)
+[日志](https://www.xuiv.ga/)
+[笔记](https://xuiv.ga/)
+[闲聊](https://forum.xuiv.ga/)
 
 # Architect theme
 
