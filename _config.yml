@@ -1,7 +1,7 @@
 # Setup
 name:         xuiv's pages
 tagline:      记录页
-baseurl:      "https://xuiv.github.io"
+baseurl:      "https://tianmen.ga"
 locale:       "en"
 
 # Gems
