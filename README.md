@@ -1,9 +1,3 @@
-# My Web Site
-
-[日志](https://www.xuiv.ga/)
-[笔记](https://xuiv.ga/)
-[闲聊](https://forum.xuiv.ga/)
-
 # Architect theme
 
 This is a [Jekyll][1] theme that is an adaptation of [@jasonlong][2]'s [Architect theme][4] on [GitHub Pages][3].
