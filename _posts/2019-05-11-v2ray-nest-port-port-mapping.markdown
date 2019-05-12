@@ -111,3 +111,97 @@ categories: computer config
   }]
 }
 {% endhighlight %}
+通过shadowsocks代理连接vmess+ws，安全性会更好，免费ss帐号还是有的，速度也比我们自己的vmess+ws服务器好，v2ray两个小毛病，第一是支持ss的method太少，第二是不能嵌套ws，要用端口转一次。
+{% highlight json %}
+{
+  "log": {
+    "loglevel": "warning"
+  },
+
+  "inbound": {
+    "listen": "127.0.0.1",
+    "port": 1080,
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": true
+    },
+    "domainOverride": [
+      "http",
+      "tls"
+    ]
+  },
+
+  "outbound": {
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [{
+            "address": "127.0.0.1",
+            "port": 8443,
+            "users": [{
+              "alterId": 64,
+              "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+              "security": "none",
+              "level": 0
+            }]
+        }]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "headers": {
+            "Host": "xxxx.xxxx.com"
+          }
+        },
+        "tlsSettings": {
+          "allowInsecure": true,
+          "serverName": "xxxx.xxxx.com"
+        }
+      }
+  },
+
+  "inboundDetour": [{
+    "listen": "127.0.0.1",
+    "port": 8443, 
+    "protocol": "dokodemo-door",
+    "settings": {
+      "network": "tcp", 
+      "address": "xxxx.xxxx.com", 
+      "port": 443
+    },
+    "tag": "bridge"
+  }],
+
+  "outboundDetour": [
+    {
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "45.89.64.139",
+            "method": "aes-256-cfb",
+            "ota": false,
+            "password": "sdfsdf234234213412",
+            "port": 443
+          }
+        ]
+      },
+      "tag": "transit"
+    }
+  ],
+
+  "routing": {
+    "strategy": "rules",
+    "settings": {
+      "rules": [{
+        "type": "field",
+        "inboundTag": ["bridge"],
+        "outboundTag": "transit"
+      }]
+    }
+  }
+
+}
+
+{% endhighlight %}
