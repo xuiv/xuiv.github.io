@@ -4,6 +4,7 @@ title:  "v2ray端口映射和代理嵌套"
 date:   2019-05-11 19:19:56
 categories: computer config
 ---
+原文在：https://kirikira.moe/post/26
 
 服务器xxxx.xxxx.com内的8084端口映射到客户端1080端口
 {% highlight json %}
