@@ -37,7 +37,8 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
 # server is running on screen 0, and if not starts Xvfb, x11vnc and novnc.
-RUN echo "export DISPLAY=:0" >> ~/.bashrc \
+RUN echo "export PORT=1080" >> ~/.bashrc \
+ && echo "export DISPLAY=:0" >> ~/.bashrc \
  && echo "" >> ~/.bashrc \
  && echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc \
  && echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc \
