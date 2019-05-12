@@ -14,9 +14,9 @@ ENV WINDOW_MANAGER="fluxbox"
 RUN git clone https://github.com/novnc/noVNC.git /opt/novnc \
     && git clone https://github.com/novnc/websockify /opt/novnc/utils/websockify
 
-RUN curl -O -L https://github.com/xuiv/gost-heroku/releases/download/1.0/gost-linux \
- && curl -O -L https://github.com/xuiv/v2ray-heroku/releases/download/1.0/v2ray-linux \
- && curl -O -L https://github.com/xuiv/v2ray-heroku/releases/download/1.0/server.json \
+RUN curl -O -L https://github.com/xuiv/gost-heroku/releases/download/1.01/gost-linux \
+ && curl -O -L https://github.com/xuiv/v2ray-heroku/releases/download/1.01/v2ray-linux \
+ && curl -O -L https://github.com/xuiv/v2ray-heroku/releases/download/1.01/server.json \
  && mv gost-linux /usr/bin/ \
  && mv v2ray-linux /usr/bin/ \
  && mv server.json /usr/bin/ \
