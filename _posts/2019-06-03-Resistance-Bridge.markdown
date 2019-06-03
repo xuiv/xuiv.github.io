@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "三极管放大原理的分析"
-date:   2019-05-28 09:50:02
+title:  "基本电阻桥"
+date:   2019-06-03 18:20:00
 categories: computer config
 ---
 
