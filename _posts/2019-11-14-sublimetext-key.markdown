@@ -20,7 +20,7 @@ Ctrl+Shift+Enter：在当前行前插入新行
 Ctrl+X：删除当前行
 Ctrl+M：跳转到对应括号
 Ctrl+U：软撤销，撤销光标位置
-Ctrl+J：选择标签内容
+Ctrl+J：合并选中的多行代码为一行
 Ctrl+F：查找内容
 Ctrl+Shift+F：查找并替换
 Ctrl+H：替换
