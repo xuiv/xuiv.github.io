@@ -150,6 +150,7 @@ windows in vhd uefi:
 
 
 1. 挂载你的vhd：
+```
 DISKPART
 SELECT VDISK FILE="C:\ubuntu\win7.vhd"
 DETACH VDISK
@@ -159,10 +160,13 @@ ATTACH VDISK
 LIST VOLUME
 ASSIGN LETTER=W
 EXIT
+```
 2. 离线修改注册表：
+```
 REG LOAD HKLM\TEMP W:\WINDOWS\SYSTEM32\CONFIG\SYSTEM
 REG ADD HKLM\TEMP\ControlSet001\services\FsDepends\Parameters /v VirtualDiskExpandOnMount /t REG_DWORD /d 4 /f
 REG ADD HKLM\TEMP\ControlSet001\Control /v BootDriverFlags /t REG_DWORD /d 4 /f
 REG ADD HKLM\TEMP\ControlSet001\Control\PnP /v PollBootPartitionTimeout /t REG_DWORD /d 30000 /f
 REG UNLOAD HKLM\TEMP
+```
 3. deteach vhd 并重启。
