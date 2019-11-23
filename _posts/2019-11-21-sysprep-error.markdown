@@ -41,15 +41,22 @@ Open regedit and look for:
 
 
 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\SkipRearm
+
+
+
+
+Set to value: 1
+
+
+
+
 HKEY_LOCAL_MACHINE\SYSTEM\Setup\Status\SysprepStatus\CleanupState
 
 
 
 
 Set to value: 2
-
-
-
 
 
 
