@@ -9,7 +9,6 @@ ubuntu server 使用wifi
 ```
 sudo apt install iw wpasupplicant
 sudo ip link show
-sudo iwconfig
 sudo iw dev enp9s0 scan
 ```
 
