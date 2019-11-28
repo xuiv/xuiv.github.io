@@ -17,3 +17,12 @@ sudo apt-get upgrade
 ```
 export FREETYPE_PROPERTIES="truetype:interpreter-version=40 cff:no-stem-darkening=1 autofitter:warping=1 pcf:no-long-family-names=1" 
 ```
+
+```
+#安装时间校准服务
+$ sudo apt-get install ntpdate
+#从time.windows.com获取本地时间
+$ sudo ntpdate time.windows.com
+#同步时间到硬件
+$ sudo hwclock --localtime --systohc
+```
