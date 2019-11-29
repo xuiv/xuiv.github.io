@@ -1,0 +1,188 @@
+---
+layout: post
+title:  "FreeBSD ThinkPad X61 config"
+date:   2019-11-29 13:56:00
+categories: computer config
+---
+
+
+```
+Fully functional ThinkPad X61 config
+ 
+FreeBSD is a solid OS with good performance under high loading which makes it an excellent choice as a server OS. My love with it doesn't stop there. It has a great support community. Good documentation. A consistent init system. You may learn more about it in A FreeBSD 10 Desktop How-to.
+
+As much as I love FreeBSD to be my main desktop OS, it has quite a few drawbacks. Due to its conservative out-of-the-box settings it's tedious to configure it. Lots of information on the Internet are somewhat outdated. Lack of software like Skype and Flash (despite its evilness). So I decided to write this guide for those, like me, who happen to own a ThinkPad X61 and want to slab a FreeBSD onto it. It also serves as a personal reminder for myself in case I need to start from scratch again.
+
+It is an extensive setup guide that makes most of the things work, at least for 10.2-RELEASE-p7. See below for the complete list.
+
+What works:
+
+    Graphics - vt, X11
+    Sound
+    Wifi
+    Ethernet
+    USB
+    Suspend/resume
+    Generic keyboard shortcuts - batt info, sleep, bluetooth on/off, trackpoint on/off, brightness, ThinkLight
+
+What doesn't work or not tested:
+
+    TPM
+    Modem (who still uses it nowadays?)
+
+
+
+/boot/loader.conf
+linprocfs_load="YES"
+linsysfs_load="YES"
+acpi_ibm_load="YES"
+
+# Do not load tpm as it's known to break suspend.
+#tpm_load="YES"
+
+ichsmb_load="YES"
+ichwd_load="YES"
+hwpmc_load="YES"
+acpi_video_load="YES"
+smapi_load="YES"
+hifn_load="YES"
+smbios_load="YES"
+nvram_load="YES"
+coretemp_load="YES"
+i915kms_load="YES"
+#sdhci_load="YES"
+#mmc_load="YES"
+vboxdrv_load="YES"
+
+kern.vty=vt
+kern.vt.gb.default_mode="1024x768"
+#hw.vga.textmode="1"
+drm.i915.enable_rc6=7
+hw.acpi.reset_video=1
+
+# Enable Trackpoint support
+hw.psm.trackpoint_support="1"
+
+
+
+
+/etc/sysctl.conf
+dev.pcm.0.play.vchans=4
+dev.pcm.0.rec.vchans=4
+
+# Debug suspend/resume problem
+#debug.acpi.resume_beep=1
+
+vfs.usermount=1
+
+dev.acpi_ibm.0.events=1
+dev.acpi_ibm.0.handlerevents=0x17
+hw.acpi.lid_switch_state=S3
+
+# Enable shared memory support for Chromium
+kern.ipc.shm_allow_removed=1
+
+hw.psm.trackpoint.sensitivity=255
+
+# The CentOS ports infrastructure has replaced Fedora 10 as default
+# See UPDATING entry 20141209 for details
+compat.linux.osrelease=2.6.18
+
+
+
+/boot/device.hints
+# Disable CPU throttling
+#hw.pci.do_power_nodriver="3"
+hint.acpi_throttle.0.disabled="1"
+hint.p4tcc.0.disabled="1"
+
+
+
+/etc/rc.conf
+hostname="muon"
+keymap="us.ctrl.kbd"
+wlans_wpi0="wlan0"
+ifconfig_wlan0="WPA DHCP"
+sshd_enable="YES"
+moused_enable="YES"
+moused_flags="-z 4 5 6 7"
+ntpd_enable="YES"
+powerd_enable="YES"
+#powerd_flags="-i 85 -r 60 -p 100"
+performance_cx_lowest="Cmax"
+economy_cx_lowest="Cmax"
+uhidd_enable="YES"
+# Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
+dumpdev="AUTO"
+tcsd_enable="YES"
+hald_enable="YES"
+dbus_enable="YES"
+syslogd_enable="YES"
+syslogd_flags="-a freebsdap03.thds.mooo.com:* -v -v"
+#proftpd_enable="YES"
+cuse4bsd_load="YES"
+webcamd_enable="YES"
+linux_enable="YES"
+fuse_enable="YES"
+
+devfs_system_ruleset="system"
+devfs_system_ruleset="localrules"
+
+vboxnet_enable="YES"
+
+nfs_server_enable="YES"
+rpcbind_enable="YES"
+mountd_flags="-r"
+mountd_enable="YES"
+
+amd_flags="-a /.amd_mnt -l syslog /host /etc/amd.map /net /etc/amd.map"
+automounter_enable="YES"
+
+
+
+
+/usr/local/etc/X11/xorg.conf.d/10-sysmouse.conf
+Section "InputClass"
+        Identifier "sysmouse0"
+        MatchDevicePath "/dev/sysmouse"
+        Option "EmulateWheel" "true"
+        Option "EmulateWheelButton" "2"
+        Option "YAxisMapping" "4 5"
+        Option "XAxisMapping" "6 7"
+
+EndSection
+
+
+
+/usr/local/bin/acpi_osd
+#!/bin/sh
+#
+
+DISPLAY_PIPE=/tmp/acpi_ibm_display
+OSD="osd_cat"
+FONT="-*-lucidatypewriter-*-*-*-*-*-240-*-*-*-*-*-*"
+COLOR=Green
+TIME=1
+OPTS="--font=$FONT -c $COLOR -p top -o 50 -i 50 -d $TIME"
+
+trap "rm -f $DISPLAY_PIPE" EXIT
+
+[ -p $DISPLAY_PIPE ] || mkfifo $DISPLAY_PIPE
+
+while true
+do
+        if read line <$DISPLAY_PIPE; then
+                echo $line | $OSD $OPTS
+        fi
+done
+
+exit 0
+
+
+
+~/.xinitrc
+if [ -x /usr/local/bin/acpi_osd ]; then
+        /usr/local/bin/acpi_osd &
+fi
+
+```
