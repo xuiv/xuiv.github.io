@@ -23,6 +23,23 @@ pw user mod <username> -g wheel
 cd /usr/ports/chinese/scim-tables
 make install clean; rehash
 ```
+/etc/rc.conf
+```
+hostname="FreeBSD"
+wlans_ath0="wlan0"
+ifconfig_wlan0="WPA DHCP"
+create_args_wlan0="country CN"
+moused_enable="YES"
+powerd_enable="YES"
+dumpdev="NO"
+hald_enable="YES"
+dbus_enable="YES"
+linux_enable="YES"
+fusefs_enable="YES"
+cuse4bsd_load="YES"
+rpcbind_enable="YES"
+kld_list="acpi_ibm acpi_wideo i915kms linprocfs linsysfs ichsmb ichwd hwpmc smapi hifn nvram coretemp fuse"
+```
 
 ~/.xinitrc
 ```
