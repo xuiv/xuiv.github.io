@@ -18,6 +18,7 @@ pkg install ca_root_nss
 pkg install vim-console xorg-minimal dwm xf86-video-intel firefox scim fusefs-ntfs fusefs-ntfs-compression emacs smplayer git
 
 pw groupmod wheel -m <username>
+pw groupmod video -m <username>
 pw user mod <username> -g wheel
 
 cd /usr/ports/chinese/scim-tables
