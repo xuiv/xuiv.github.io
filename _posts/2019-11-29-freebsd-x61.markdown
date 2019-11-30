@@ -52,6 +52,14 @@ export LC_TIME="zh_CN.UTF-8"
 export LC_NUMERIC="zh_CN.UTF-8"
 export LC_MONETARY="zh_CN.UTF-8"
 export LC_MESSAGES="zh_CN.UTF-8"
+export FREETYPE_PROPERTIES="truetype:interpreter-version=40 autofitter:warping=1"
+
+exec scim -d &
+while (true)
+do
+        xsetroot -name "`date +'%F %r'`"
+        sleep 1m
+done &
 exec scim -d &
 dwm
 ```
