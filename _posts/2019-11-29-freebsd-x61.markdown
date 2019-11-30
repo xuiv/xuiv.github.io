@@ -5,6 +5,51 @@ date:   2019-11-29 13:56:00
 categories: computer config
 ---
 
+/etc/pkg/FreeBSD.conf
+```
+FreeBSD: {
+  url: "pkg+http://pkg0.twn.freebsd.org/${ABI}/quarterly",
+}
+```
+```
+pkg
+pkg update
+pkg install ca_root_nss
+pkg install vim-console xorg-minimal dwm xf86-video-intel firefox scim
+
+pw groupmod wheel -m <username>
+pw user mod <username> -g wheel
+
+cd /usr/ports/chinese/scim-tables
+make install clean; rehash
+```
+
+~/.xinitrc
+```
+export LANG="zh_CN.UTF-8"
+export LC_ALL="zh_CN.UTF-8"
+export LC_CTYPE="zh_CN.UTF-8"
+export LC_COLLATE="zh_CN.UTF-8"
+export LC_TIME="zh_CN.UTF-8"
+export LC_NUMERIC="zh_CN.UTF-8"
+export LC_MONETARY="zh_CN.UTF-8"
+export LC_MESSAGES="zh_CN.UTF-8"
+exec scim -d &
+dwm
+```
+~/.cshrc
+```
+setenv XIM scim
+setenv GTK_IM_MODULE scim
+setenv QT_IM_MODULE xim
+setenv XMODIFIERS @im=SCIM
+setenv XIM_PROGRAM scim-daemon
+setenv XIM_ARGS "--daemonize --xim"
+```
+
+
+
+
 
 ```
 Fully functional ThinkPad X61 config
