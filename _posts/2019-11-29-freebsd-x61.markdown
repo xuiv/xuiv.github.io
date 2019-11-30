@@ -38,7 +38,7 @@ linux_enable="YES"
 fusefs_enable="YES"
 cuse4bsd_load="YES"
 rpcbind_enable="YES"
-kld_list="acpi_ibm acpi_wideo i915kms linprocfs linsysfs ichsmb ichwd hwpmc smapi hifn nvram coretemp fuse"
+kld_list="acpi_ibm acpi_video i915kms linprocfs linsysfs ichsmb ichwd hwpmc smapi hifn nvram coretemp fuse"
 ```
 
 ~/.xinitrc
@@ -53,6 +53,12 @@ export LC_MONETARY="zh_CN.UTF-8"
 export LC_MESSAGES="zh_CN.UTF-8"
 exec scim -d &
 dwm
+```
+
+/etc/devfs.rules
+```
+add path 'dri/*' mode 0666 group video
+add path 'drm/*' mode 0666 group video
 ```
 
 ~/.cshrc
