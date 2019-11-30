@@ -15,7 +15,7 @@ FreeBSD: {
 pkg
 pkg update
 pkg install ca_root_nss
-pkg install vim-console xorg-minimal dwm xf86-video-intel firefox scim
+pkg install vim-console xorg-minimal dwm xf86-video-intel firefox scim fusefs-ntfs fusefs-ntfs-compression emacs smplayer git
 
 pw groupmod wheel -m <username>
 pw user mod <username> -g wheel
@@ -37,6 +37,7 @@ export LC_MESSAGES="zh_CN.UTF-8"
 exec scim -d &
 dwm
 ```
+
 ~/.cshrc
 ```
 setenv XIM scim
@@ -45,8 +46,44 @@ setenv QT_IM_MODULE xim
 setenv XMODIFIERS @im=SCIM
 setenv XIM_PROGRAM scim-daemon
 setenv XIM_ARGS "--daemonize --xim"
+
+set vvv=`ps`
+if (`echo $vvv |grep v2ray-freebsd` == "") then
+        v2ray-freebsd -config /usr/local/bin/config.json >&/dev/null &
+endif
+unset vvv
 ```
 
+/usr/local/etc/fonts/fonts.conf
+```
+<match>
+        <edit name="lang"><string>en</string></edit>
+</match>
+<match>
+        <edit name="family" mode="append_last"><string>Microsoft YaHei Mono</string></edit>
+</match>
+<match>
+        <edit name="dpi"><double>96</double></edit>
+</match>
+<match target="font">
+       <edit name="pixelsize">
+                <if>
+                       <less><name>pixelsize</name><double>10</double></less>
+                       <int>10</int>
+                       <round><name>pixelsize</name></round>
+                </if>
+        </edit>
+        <edit name="antialias"><bool>true</bool></edit>
+        <edit name="hinting"><bool>true</bool></edit>
+        <edit name="autohint"><bool>false</bool></edit>
+        <edit name="hintstyle"><const>hintfull</const></edit>
+        <edit name="rgba"><const>rgb</const></edit>
+        <edit name="lcdfilter"><const>lcddefault</const></edit>
+        <edit name="embeddedbitmap"><bool>true</bool></edit>
+        <edit name="embolden"><bool>false</bool></edit>
+</match>
+
+```
 
 
 
