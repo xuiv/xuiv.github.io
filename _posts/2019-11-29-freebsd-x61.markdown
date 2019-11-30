@@ -23,6 +23,9 @@ pw user mod <username> -g wheel
 
 cd /usr/ports/chinese/scim-tables
 make install clean; rehash
+
+Xorg -configure
+mv ./xorg.conf* /etc/X11/xorg.conf
 ```
 /etc/rc.conf
 ```
@@ -40,6 +43,43 @@ fusefs_enable="YES"
 cuse4bsd_load="YES"
 rpcbind_enable="YES"
 kld_list="acpi_ibm acpi_video i915kms linprocfs linsysfs ichsmb ichwd hwpmc smapi hifn nvram coretemp fuse"
+```
+
+/etc/sysctl.conf
+```
+security.bsd.see_other_uids=0
+
+dev.pcm.0.play.vchans=4
+dev.pcm.0.rec.vchans=4
+vfs.usermount=1
+dev.acpi_ibm.0.events=1
+dev.acpi_ibm.0.handlerevents=0x17
+hw.acpi.lid_switch_state=S3
+kern.ipc.shm_allow_removed=1
+hw.psm.trackpoint.sensitivity=255
+compat.linux.osrelease=2.6.18
+
+```
+
+
+
+
+/etc/X11/xorg.conf
+```
+Section "Device"
+        ### Available Driver options are:-
+        ### Values: <i>: integer, <f>: float, <bool>: "True"/"False",
+        ### <string>: "String", <freq>: "<f> Hz/kHz/MHz",
+        ### <percent>: "<f>%"
+        ### [arg]: arg optional
+        #Option     "ShadowFB"                  # [<bool>]
+        #Option     "DefaultRefresh"            # [<bool>]
+        #Option     "ModeSetClearScreen"        # [<bool>]
+        Identifier  "Card0"
+        Driver      "intel"
+        BusID       "PCI:0:2:0"
+EndSection
+
 ```
 
 ~/.xinitrc
