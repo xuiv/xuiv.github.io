@@ -60,7 +60,6 @@ do
         xsetroot -name "`date +'%F %r'`"
         sleep 1m
 done &
-exec scim -d &
 dwm
 ```
 
