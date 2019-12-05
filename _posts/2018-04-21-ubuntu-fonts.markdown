@@ -19,6 +19,7 @@ export FREETYPE_PROPERTIES="truetype:interpreter-version=40 cff:no-stem-darkenin
 ```
 
 ```
+$ sudo timedatectl set-local-rtc 1
 #安装时间校准服务
 $ sudo apt-get install ntpdate
 #从time.windows.com获取本地时间
