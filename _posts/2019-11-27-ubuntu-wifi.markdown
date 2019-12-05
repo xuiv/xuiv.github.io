@@ -6,7 +6,7 @@ categories: computer config
 ---
 
 
-/etc/netplan/****.yaml  :sudo netplan apply
+/etc/netplan/****.yaml                   :sudo netplan apply
 ```
 network:
   version: 2
