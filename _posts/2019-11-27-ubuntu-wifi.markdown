@@ -5,9 +5,74 @@ date:   2019-11-27 11:14:00
 categories: computer config
 ---
 
+
+/etc/netplan/****.yaml  :sudo netplan apply
+```
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp3s0:
+      dhcp4: true
+```
+```
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp3s0:
+      addresses:
+        - 10.10.10.2/24
+      gateway4: 10.10.10.1
+      nameservers:
+          search: [mydomain, otherdomain]
+          addresses: [10.10.10.1, 1.1.1.1]
+```
+```
+network:
+  version: 2
+  wifis:
+    wl0:
+      access-points:
+        opennetwork: {}
+      dhcp4: yes
+```
+```
+network:
+  version: 2
+  renderer: networkd
+  wifis:
+    wlp2s0b1:
+      dhcp4: no
+      dhcp6: no
+      addresses: [192.168.0.21/24]
+      gateway4: 192.168.0.1
+      nameservers:
+        addresses: [192.168.0.1, 8.8.8.8]
+      access-points:
+        "network_ssid_name":
+          password: "**********"
+```
+```
+network:
+  version: 2
+  renderer: networkd
+  wifis:
+    wlp2s0b1:
+      dhcp4: yes
+      dhcp6: no
+      access-points:
+        "network_ssid_name":
+          password: "**********"
+```
+
+
+
+
+
 ubuntu server 使用wifi
 ```
-sudo apt install iw wpasupplicant
+sudo apt install iw wpasupplicant wireless-tools network-manager
 sudo ip link show
 sudo iw dev enp9s0 scan
 ```
