@@ -91,4 +91,4 @@ This work is licensed under a [Creative Commons Attribution 4.0 International](h
 [3]: http://pages.github.com/
 [4]: https://github.com/jasonlong/architect-theme
 
- git clone --depth 1 --single-branch --branch v5.4.6-zen3 https://github.com/zen-kernel/zen-kernel.git
+ git clone --depth 1 --single-branch --branch v5.4.7-zen1 https://github.com/zen-kernel/zen-kernel.git
