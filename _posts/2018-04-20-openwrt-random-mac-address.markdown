@@ -32,3 +32,8 @@ vlmcsdmulti-mips32el-openwrt-uclibc-static vlmcsd &
 
 exit 0
 ```
+
+#crontab
+```
+* */6 * * * sleep 5 && touch /etc/banner && reboot
+```
