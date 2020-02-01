@@ -26,7 +26,8 @@ uci commit network
 uci commit wireless
 NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:30/')
 ifconfig eth0 down;ifconfig eth0 hw ether ${NEWMAC};ifconfig eth0 up
-/etc/init.d/network restart
+#/etc/init.d/network restart
+wifi reload
 
 vlmcsdmulti-mips32el-openwrt-uclibc-static vlmcsd &
 
@@ -57,6 +58,7 @@ uci commit network
 uci commit wireless
 NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:30/')
 ifconfig eth0 down;ifconfig eth0 hw ether ${NEWMAC};ifconfig eth0 up
-/etc/init.d/network restart
+#/etc/init.d/network restart
+wifi reload
 
 ```
