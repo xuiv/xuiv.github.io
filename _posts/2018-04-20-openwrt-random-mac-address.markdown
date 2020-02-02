@@ -45,20 +45,8 @@ exit 0
 
 
 NEWMAC0=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null | md5sum | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/\1\2\3\4\5\6/')
-NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:81/')
-uci set network.lan_dev.macaddr=${NEWMAC}
-NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:82/')
-uci set network.wan_dev.macaddr=${NEWMAC}
 NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:83/')
 uci set wireless.@wifi-iface[0].macaddr=${NEWMAC}
-NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:84/')
-uci set wireless.@wifi-iface[1].macaddr=${NEWMAC}
-uci set network.wwan.hostname=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null | md5sum | sed 's/^\(..\)\(..\)\(..\).*$/\1\2\3/')
-uci commit network
-uci commit wireless
-NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:30/')
-ifconfig eth0 down;ifconfig eth0 hw ether ${NEWMAC};ifconfig eth0 up
-#/etc/init.d/network restart
 wifi reload
 
 ```
