@@ -45,7 +45,7 @@ exit 0
 
 
 NEWMAC0=$(dd if=/dev/urandom bs=1024 count=1 2>/dev/null | md5sum | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/\1\2\3\4\5\6/')
-NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:83/')
+NEWMAC=$(echo ${NEWMAC0} | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\)\(..\).*$/e8:\2:\3:\4:\5:\6/')
 uci set wireless.@wifi-iface[0].macaddr=${NEWMAC}
 wifi reload
 
