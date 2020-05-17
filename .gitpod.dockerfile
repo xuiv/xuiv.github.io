@@ -4,7 +4,7 @@ USER root
 
 # Install Xvfb, JavaFX-helpers and Openbox window manager
 RUN apt-get update \
-    && apt-get install -yq xvfb x11vnc xterm openjfx libopenjfx-java mousepad firefox deluge deluge-gtk megatools fonts-droid-fallback fluxbox \
+    && apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 # overwrite this env variable to use a different window manager
@@ -30,9 +30,7 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && mv start-vnc-session.sh /usr/bin/ \
  && chmod +x /usr/bin/start-vnc-session.sh \
  && sed -ri "s/1920x1080/1366x830/g" /usr/bin/start-vnc-session.sh \
- && sed -ri '/\$WINDOW_MANAGER &/a\mousepad &' /usr/bin/start-vnc-session.sh \
- && sed -ri '/\$WINDOW_MANAGER &/a\firefox &' /usr/bin/start-vnc-session.sh \
- && sed -ri '/\$WINDOW_MANAGER &/a\deluge-gtk &' /usr/bin/start-vnc-session.sh
+ && sed -ri '/\$WINDOW_MANAGER &/a\xterm &' /usr/bin/start-vnc-session.sh
 
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
