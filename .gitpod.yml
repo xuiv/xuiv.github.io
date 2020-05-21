@@ -5,13 +5,8 @@ ports:
     onOpen: notify
   - port: 1081
     onOpen: notify
-  - port: 1082
-    onOpen: notify
   - port: 6080
     onOpen: notify
-  - port: 6081
-    onOpen: notify
-  - port: 6082
     onOpen: notify
   - port: 8080
     onOpen: notify
