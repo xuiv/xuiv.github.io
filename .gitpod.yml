@@ -7,7 +7,6 @@ ports:
     onOpen: notify
   - port: 6080
     onOpen: notify
-    onOpen: notify
   - port: 8080
     onOpen: notify
 checkoutLocation: "go/src/github.com/xuiv/xuiv.github.io"
