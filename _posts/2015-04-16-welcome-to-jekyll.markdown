@@ -2,7 +2,6 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2015-04-16 16:03:56
-hash:   "kCorjWvIGAcuA%lhZdQ28rrUIfZ"
 categories: jekyll update
 ---
 
