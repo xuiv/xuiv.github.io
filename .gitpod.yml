@@ -9,6 +9,8 @@ ports:
     onOpen: notify
   - port: 8080
     onOpen: notify
+  - port: 8088
+    onOpen: notify    
 checkoutLocation: "go/src/github.com/xuiv/xuiv.github.io"
 workspaceLocation: "go/src/github.com/xuiv/xuiv.github.io"
 tasks:
