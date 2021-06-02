@@ -47,25 +47,11 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && sed -ri '/Automatically generated/a\   \[exec\] \(Deluge\) \{deluge-gtk\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Mousepad\) \{mousepad\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
- && echo "[begin] (MenuName)" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[exec] (Firefox) {firefox}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[exec] (Deluge) {deluge-gtk}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[exec] (Mousepad) {mousepad}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[exec] (Filemanager) {pcmanfm}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[exec] (LXterm) {lxterminal}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[exec] (Xterm) {xterm -ls -bg black -fg green -e /bin/bash --login}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[submenu] (styles)" >> /etc/X11/blackbox/blackbox-menu \
- && echo "   [stylesmenu] (built-in styles) {/usr/share/blackbox/styles}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "   [stylesmenu] (custom styles) {~/.blackbox/styles}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[end]" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[workspaces] (workspace list)" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[config] (configure)" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[reconfig] (config play desktop) {play-config-blackbox}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[reconfig] (config work desktop) {work-config-blackbox}" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[restart] (restart)" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[exit] (exit)" >> /etc/X11/blackbox/blackbox-menu \
- && echo "[end]" >> /etc/X11/blackbox/blackbox-menu 
-
+ && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(LXterm\) \{lxterminal\} \<\>' /etc/X11/blackbox/blackbox-menu \
+ && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Filemanager\) \{pcmanfm\} \<\>' /etc/X11/blackbox/blackbox-menu \
+ && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Deluge\) \{deluge-gtk\} \<\>' /etc/X11/blackbox/blackbox-menu \
+ && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Mousepad\) \{mousepad\} \<\>' /etc/X11/blackbox/blackbox-menu \
+ && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/blackbox/blackbox-menu
 
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
