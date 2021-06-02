@@ -48,7 +48,7 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && sed -ri '/Automatically generated/a\   \[exec\] \(Mousepad\) \{mousepad\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && mv /etc/X11/blackbox/blackbox-menu /etc/X11/blackbox/blackbox-menu.orig \
- && echo "[begin] (Debian)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "[begin] (Menu)" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [exec] (Firefox) {firefox}" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [exec] (Mousepad) {mousepad}" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [exec] (Deluge) {deluge-gtk}" >> /etc/X11/blackbox/blackbox-menu \
@@ -56,7 +56,9 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && echo "   [exec] (LXterm) {lxterminal}" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [sep]" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [config] (Configuration)" >> /etc/X11/blackbox/blackbox-menu \
- && echo "   [stylesdir] (/usr/share/blackbox/styles)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [submenu] (Styles)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "      [stylesdir] (/usr/share/blackbox/styles)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [end]" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [workspaces] (Workspaces)" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [sep]" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [reconfig] (Reconfigure)" >> /etc/X11/blackbox/blackbox-menu \
