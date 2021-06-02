@@ -4,14 +4,14 @@ USER root
 
 # Install Xvfb, JavaFX-helpers and Openbox window manager
 RUN add-apt-repository ppa:no1wantdthisname/ppa && apt-get update && apt-get -y upgrade\
-    && DEBIAN_FRONTEND=noninteractive apt-get install -yq language-pack-zh-hans-base xvfb x11vnc xterm megatools fonts-droid-fallback fonts-wqy-microhei fluxbox blackbox firefox lxterminal pcmanfm mousepad vim-nox emacs-nox aria2 deluge deluge-gtk \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -yq language-pack-zh-hans-base xvfb x11vnc xterm megatools fonts-droid-fallback fonts-wqy-microhei fluxbox blackbox firefox lxterminal pcmanfm mousepad vim-nox emacs-nox aria2 deluge deluge-gtk xfce4 \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' >/etc/timezone
 
 # overwrite this env variable to use a different window manager
 ENV LANG="zh_CN.UTF-8" 
-ENV WINDOW_MANAGER="fluxbox"
+ENV WINDOW_MANAGER="xfce4-session"
 
 # Install novnc
 RUN git clone https://github.com/novnc/noVNC.git /opt/novnc \
