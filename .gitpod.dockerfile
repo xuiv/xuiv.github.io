@@ -4,7 +4,7 @@ USER root
 
 # Install Xvfb, JavaFX-helpers and Openbox window manager
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox firefox mousepad vim-nox emacs-nox aria2 deluge deluge-gtk \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox firefox lxterminal pcmanfm mousepad vim-nox emacs-nox aria2 deluge deluge-gtk \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 # overwrite this env variable to use a different window manager
@@ -34,6 +34,8 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && chmod +x /usr/bin/start-vnc-session.sh \
  && sed -ri "s/1920x1080/1366x830/g" /usr/bin/start-vnc-session.sh \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Xterm\) \{ x-terminal-emulator -T "Bash" -e /bin/bash --login\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
+ && sed -ri '/Automatically generated/a\   \[exec\] \(LXterm\) \{lxterminal\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
+ && sed -ri '/Automatically generated/a\   \[exec\] \(Filemanager\) \{pcmanfm\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Deluge\) \{deluge-gtk\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Mousepad\) \{mousepad\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/fluxbox/fluxbox-menu 
