@@ -47,11 +47,23 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && sed -ri '/Automatically generated/a\   \[exec\] \(Deluge\) \{deluge-gtk\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Mousepad\) \{mousepad\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
- && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(LXterm\) \{lxterminal\} ' /etc/X11/blackbox/blackbox-menu \
- && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Filemanager\) \{pcmanfm\} ' /etc/X11/blackbox/blackbox-menu \
- && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Deluge\) \{deluge-gtk\} ' /etc/X11/blackbox/blackbox-menu \
- && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Mousepad\) \{mousepad\} ' /etc/X11/blackbox/blackbox-menu \
- && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Firefox\) \{firefox\} ' /etc/X11/blackbox/blackbox-menu
+ && mv /etc/X11/blackbox/blackbox-menu /etc/X11/blackbox/blackbox-menu.orig \
+ && echo "[begin] (Debian)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [exec] (Firefox) {firefox}" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [exec] (Mousepad) {mousepad}" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [exec] (Deluge) {deluge-gtk}" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [exec] (Filemanager) {pcmanfm}" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [exec] (LXterm) {lxterminal}" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [sep]" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [config] (Configuration)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [stylesdir] (/usr/share/blackbox/styles)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [workspaces] (Workspaces)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [sep]" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [reconfig] (Reconfigure)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [restart] (Restart)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [exit] (Exit)" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "[end]" >> /etc/X11/blackbox/blackbox-menu
+ 
 
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
@@ -59,7 +71,6 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
 RUN echo "export PORT=1080" >> ~/.bashrc \
  && echo "export DISPLAY=:0" >> ~/.bashrc \
  && echo "" >> ~/.bashrc \
- && echo "mkdir -p ~/.blackbox/styles/.nothing" >> ~/.bashrc \
  && echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc \
  && echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc \
  && echo "then" >> ~/.bashrc \
