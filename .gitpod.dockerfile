@@ -10,7 +10,8 @@ RUN apt-get update \
     && echo 'Asia/Shanghai' >/etc/timezone
 
 # overwrite this env variable to use a different window manager
-ENV LANG="zh_CN.UTF-8" WINDOW_MANAGER="blackbox"
+ENV LANG="zh_CN.UTF-8" 
+ENV WINDOW_MANAGER="blackbox"
 
 # Install novnc
 RUN git clone https://github.com/novnc/noVNC.git /opt/novnc \
