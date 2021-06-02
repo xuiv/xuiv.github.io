@@ -47,7 +47,7 @@ RUN echo "export PORT=1080" >> ~/.bashrc \
  && echo "then" >> ~/.bashrc \
  && echo "  nohup gost-linux -L quic+ws://:1081 >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  touch /tmp/aria2.conf && pushd /tmp && bash <(curl -fsSL git.io/tracker.sh) && popd" >> ~/.bashrc \
- && echo "  nohup aria2c --enable-rpc --rpc-listen-all --listen-port=8088 --enable-dht=true --dht-listen-port=8088 -c -D >/dev/null 2>&1 &" >> ~/.bashrc \
+ && echo "  nohup aria2c --enable-rpc --rpc-listen-all --listen-port=8088 --enable-dht=true --dht-listen-port=8088 -c --conf-path=/tmp/aria2.conf -D >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  nohup webui-linux --port 8080 >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  nohup v2ray-linux -config /usr/bin/server.json >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  [ ! -e /tmp/.X0-lock ] && (nohup /usr/bin/start-vnc-session.sh &> /tmp/display-\${DISPLAY}.log >/dev/null 2>&1 &)" >> ~/.bashrc \
