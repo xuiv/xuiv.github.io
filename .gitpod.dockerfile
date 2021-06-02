@@ -51,8 +51,7 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Filemanager\) \{pcmanfm\} ' /etc/X11/blackbox/blackbox-menu \
  && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Deluge\) \{deluge-gtk\} ' /etc/X11/blackbox/blackbox-menu \
  && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Mousepad\) \{mousepad\} ' /etc/X11/blackbox/blackbox-menu \
- && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Firefox\) \{firefox\} ' /etc/X11/blackbox/blackbox-menu \
- && mkdir -p /home/gitpod/.blackbox/styles
+ && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Firefox\) \{firefox\} ' /etc/X11/blackbox/blackbox-menu
 
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
@@ -60,6 +59,7 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
 RUN echo "export PORT=1080" >> ~/.bashrc \
  && echo "export DISPLAY=:0" >> ~/.bashrc \
  && echo "" >> ~/.bashrc \
+ && echo "mkdir -p /home/gitpod/.blackbox/styles" >> ~/.bashrc \
  && echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc \
  && echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc \
  && echo "then" >> ~/.bashrc \
