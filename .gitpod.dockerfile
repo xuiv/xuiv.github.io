@@ -3,8 +3,10 @@ FROM gitpod/workspace-full:latest
 USER root
 
 # Install Xvfb, JavaFX-helpers and Openbox window manager
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-    && apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox firefox aria2 deluge-gtk \
+RUN apt-get update \
+    && apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox firefox aria2 
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y deluge-gtk \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 # overwrite this env variable to use a different window manager
