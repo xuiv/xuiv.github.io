@@ -4,7 +4,7 @@ USER root
 
 # Install Xvfb, JavaFX-helpers and Openbox window manager
 RUN add-apt-repository ppa:no1wantdthisname/ppa && apt-get update && apt-get -y upgrade \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -yq language-pack-zh-hans-base xvfb x11vnc xterm megatools fonts-droid-fallback fonts-wqy-microhei fluxbox blackbox firefox lxterminal pcmanfm mousepad vim-nox emacs-nox aria2 deluge deluge-gtk \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -yq language-pack-zh-hans-base xvfb x11vnc xterm megatools fonts-droid-fallback fonts-wqy-microhei fluxbox blackbox firefox lxterminal pcmanfm mousepad vim-nox emacs-nox aria2 \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* \
     && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' >/etc/timezone
