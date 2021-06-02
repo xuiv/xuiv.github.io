@@ -61,6 +61,10 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && echo "   [end]" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [workspaces] (Workspaces)" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [sep]" >> /etc/X11/blackbox/blackbox-menu \
+ && echo "   [submenu] (Window Managers)" >> /etc/X11/blackbox/blackbox-menu \ 
+ && echo "      [restart] (Blackbox)  {/usr/bin/blackbox}" >> /etc/X11/blackbox/blackbox-menu \ 
+ && echo "      [restart] (FluxBox)  {/usr/bin/startfluxbox}" >> /etc/X11/blackbox/blackbox-menu \ 
+ && echo "   [end]" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [reconfig] (Reconfigure)" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [restart] (Restart)" >> /etc/X11/blackbox/blackbox-menu \
  && echo "   [exit] (Exit)" >> /etc/X11/blackbox/blackbox-menu \
