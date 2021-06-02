@@ -59,7 +59,7 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
 RUN echo "export PORT=1080" >> ~/.bashrc \
  && echo "export DISPLAY=:0" >> ~/.bashrc \
  && echo "" >> ~/.bashrc \
- && echo "mkdir -p /home/gitpod/.blackbox/styles/.nothing" >> ~/.bashrc \
+ && echo "mkdir -p ~/.blackbox/styles/.nothing" >> ~/.bashrc \
  && echo "vvv=\`pstree |grep gost\`" >> ~/.bashrc \
  && echo "if [ \"\${vvv}\"x = \"\"x ]" >> ~/.bashrc \
  && echo "then" >> ~/.bashrc \
