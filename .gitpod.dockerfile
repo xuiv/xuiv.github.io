@@ -3,7 +3,7 @@ FROM gitpod/workspace-full:latest
 USER root
 
 # Install Xvfb, JavaFX-helpers and Openbox window manager
-RUN && apt-get update \
+RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox firefox mousepad aria2 deluge-gtk \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
