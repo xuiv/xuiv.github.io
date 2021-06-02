@@ -51,7 +51,8 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Filemanager\) \{pcmanfm\} ' /etc/X11/blackbox/blackbox-menu \
  && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Deluge\) \{deluge-gtk\} ' /etc/X11/blackbox/blackbox-menu \
  && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Mousepad\) \{mousepad\} ' /etc/X11/blackbox/blackbox-menu \
- && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Firefox\) \{firefox\} ' /etc/X11/blackbox/blackbox-menu
+ && sed -ri '/\[begin\] \(Debian\)/a\   \[exec\] \(Firefox\) \{firefox\} ' /etc/X11/blackbox/blackbox-menu \
+ && mkdir -p /home/gitpod/.blackbox/styles
 
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
