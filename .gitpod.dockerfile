@@ -11,7 +11,7 @@ RUN apt-get update \
 
 # overwrite this env variable to use a different window manager
 ENV LANG="zh_CN.UTF-8" 
-ENV WINDOW_MANAGER="blackbox"
+ENV WINDOW_MANAGER="fluxbox"
 
 # Install novnc
 RUN git clone https://github.com/novnc/noVNC.git /opt/novnc \
