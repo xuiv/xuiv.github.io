@@ -4,7 +4,7 @@ USER root
 
 # Install Xvfb, JavaFX-helpers and Openbox window manager
 RUN && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox firefox aria2 deluge-gtk \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -yq xvfb x11vnc xterm megatools fonts-droid-fallback fluxbox firefox mousepad aria2 deluge-gtk \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 # overwrite this env variable to use a different window manager
@@ -33,8 +33,10 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && mv start-vnc-session.sh /usr/bin/ \
  && chmod +x /usr/bin/start-vnc-session.sh \
  && sed -ri "s/1920x1080/1366x830/g" /usr/bin/start-vnc-session.sh \
- && sed -ri '/Automatically generated/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
- && sed -ri '/Automatically generated/a\   \[exec\] \(Bash\) \{ x-terminal-emulator -T "Bash" -e /bin/bash --login\} \<\>' /etc/X11/fluxbox/fluxbox-menu 
+ && sed -ri '/Automatically generated/a\   \[exec\] \(Xterm\) \{ x-terminal-emulator -T "Bash" -e /bin/bash --login\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
+ && sed -ri '/Automatically generated/a\   \[exec\] \(Deluge\) \{deluge-gtk\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
+ && sed -ri '/Automatically generated/a\   \[exec\] \(Mousepad\) \{mousepad\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
+ && sed -ri '/Automatically generated/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/fluxbox/fluxbox-menu 
 
 # This is a bit of a hack. At the moment we have no means of starting background
 # tasks from a Dockerfile. This workaround checks, on each bashrc eval, if the X
