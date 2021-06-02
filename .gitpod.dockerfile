@@ -48,24 +48,24 @@ RUN curl -O -L https://raw.githubusercontent.com/gitpod-io/workspace-images/mast
  && sed -ri '/Automatically generated/a\   \[exec\] \(Mousepad\) \{mousepad\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && sed -ri '/Automatically generated/a\   \[exec\] \(Firefox\) \{firefox\} \<\>' /etc/X11/fluxbox/fluxbox-menu \
  && cat <<-EOF >> /etc/X11/blackbox/blackbox-menu \
-    [begin] (MenuName) \\n \
-    [exec] (Firefox) {firefox} \\n \
-    [exec] (Deluge) {deluge-gtk} \\n \
-    [exec] (Mousepad) {mousepad} \\n \
-    [exec] (Filemanager) {pcmanfm} \\n \
-    [exec] (LXterm) {lxterminal} \\n \
-    [exec] (Xterm) {xterm -ls -bg black -fg green -e /bin/bash --login} \\n \
-    [submenu] (styles) \\n \
-        [stylesmenu] (built-in styles) {/usr/share/blackbox/styles} \\n \
-        [stylesmenu] (custom styles) {~/.blackbox/styles} \\n \
-    [end] \\n \
-    [workspaces] (workspace list) \\n \
-    [config] (configure) \\n \
-    [reconfig] (config play desktop) {play-config-blackbox} \\n \
-    [reconfig] (config work desktop) {work-config-blackbox} \\n \
-    [restart] (restart) \\n \
-    [exit] (exit) \\n \
-    [end] \\n \
+    \[begin\] \(MenuName\) \\n \
+    \[exec\] \(Firefox\) \{firefox\} \\n \
+    \[exec\] \(Deluge\) \{deluge-gtk\} \\n \
+    \[exec\] \(Mousepad\) \{mousepad\} \\n \
+    \[exec\] \(Filemanager\) \{pcmanfm\} \\n \
+    \[exec\] \(LXterm\) \{lxterminal\} \\n \
+    \[exec\] \(Xterm\) \{xterm -ls -bg black -fg green -e /bin/bash --login\} \\n \
+    \[submenu\] \(styles\) \\n \
+        \[stylesmenu\] \(built-in styles\) \{/usr/share/blackbox/styles\} \\n \
+        \[stylesmenu\] \(custom styles\) \{~/.blackbox/styles\} \\n \
+    \[end\] \\n \
+    \[workspaces\] \(workspace list\) \\n \
+    \[config\] \(configure\) \\n \
+    \[reconfig\] \(config play desktop\) \{play-config-blackbox\} \\n \
+    \[reconfig\] \(config work desktop\) \{work-config-blackbox\} \\n \
+    \[restart\] \(restart\) \\n \
+    \[exit\] \(exit\) \\n \
+    \[end\] \\n \
     EOF
 
 # This is a bit of a hack. At the moment we have no means of starting background
