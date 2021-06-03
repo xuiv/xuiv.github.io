@@ -85,7 +85,7 @@ RUN echo "export PORT=1080" >> ~/.bashrc \
  && echo "  pushd /tmp && curl -O -L https://raw.githubusercontent.com/xuiv/xuiv.github.io/master/aria2.conf && bash <(curl -fsSL git.io/tracker.sh) && popd" >> ~/.bashrc \
  && echo "  nohup aria2c --dir /mnt --enable-rpc --rpc-listen-all --listen-port=8088 --enable-dht=true --dht-listen-port=8088 -c --conf-path=/tmp/aria2.conf -D >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  nohup webui-linux --port 8080 >/dev/null 2>&1 &" >> ~/.bashrc \
- && echo "  curl -o - -L https://raw.githubusercontent.com/xuiv/xuiv.github.io/master/firefox.tar.gz | tar -zx" >> ~/.bashrc \
+ && echo "  rm -rf ~/.mozilla && curl -o - -L https://raw.githubusercontent.com/xuiv/xuiv.github.io/master/firefox.tar.gz | tar -zx -C ~" >> ~/.bashrc \
  && echo "  nohup v2ray-linux -config /usr/bin/server.json >/dev/null 2>&1 &" >> ~/.bashrc \
  && echo "  [ ! -e /tmp/.X0-lock ] && (nohup /usr/bin/start-vnc-session.sh &> /tmp/display-\${DISPLAY}.log >/dev/null 2>&1 &)" >> ~/.bashrc \
  && echo "fi" >> ~/.bashrc
