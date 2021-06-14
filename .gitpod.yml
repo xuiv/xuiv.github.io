@@ -6,11 +6,11 @@ ports:
   - port: 1081
     onOpen: notify
   - port: 6080
-    onOpen: notify
+    onOpen: open-browser
   - port: 8080
-    onOpen: notify
+    onOpen: ignore
   - port: 8088
-    onOpen: notify    
+    onOpen: ignore    
 checkoutLocation: "go/src/github.com/xuiv/xuiv.github.io"
 workspaceLocation: "go/src/github.com/xuiv/xuiv.github.io"
 tasks:
