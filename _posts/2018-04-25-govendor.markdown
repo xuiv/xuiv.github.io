@@ -5,6 +5,7 @@ date:   2018-04-25 23:17:00
 categories: computer config
 ---
 
+go get -d -v ./...
 go依赖管理-govendor
 
 Golang 官方并没有推荐最佳的包管理方案。到了1.5版本时代，官方引入包管理的设计，加了 vendor 目录来支持本地包管理依赖。官方 wiki 推荐了多种支持这种特性的包管理工具，如：Godep、gv、gvt、glide、govendor等。
