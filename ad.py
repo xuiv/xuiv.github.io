@@ -18,32 +18,32 @@ def clicker(client):
                 link = "window.open(\"http://adf.ly/25551289/www.pornhub.com/view_video.php?viewkey="+id_generator()+"\");"
                 client.execute_script(link)
             client.switch_to.window(client.window_handles[0])
-            client.get("http://j.gs/25551289/girlxxx01")
-            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.ID, "skip_bu2tton"))).click()
+            client.get("http://adfoc.us/6749481")
+            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='showSkip']/a[@class='skip']"))).click()
             time.sleep(5)
             client.delete_all_cookies()
             if len(client.window_handles) < 2:
                 link = "window.open(\"http://adf.ly/25551289/www.pornhub.com/view_video.php?viewkey="+id_generator()+"\");"
                 client.execute_script(link)
             client.switch_to.window(client.window_handles[1])
-            client.get("http://j.gs/25551289/girlxxx02")
-            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.ID, "skip_bu2tton"))).click()
+            client.get("http://adfoc.us/67494880341620")
+            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='showSkip']/a[@class='skip']"))).click()
             time.sleep(5)
             client.delete_all_cookies()
             if len(client.window_handles) < 3:
                 link = "window.open(\"http://adf.ly/25551289/www.pornhub.com/view_video.php?viewkey="+id_generator()+"\");"
                 client.execute_script(link)            
             client.switch_to.window(client.window_handles[2])
-            client.get("http://j.gs/25551289/girlxxx03")
-            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.ID, "skip_bu2tton"))).click()
+            client.get("http://adfoc.us/67494880341621")
+            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='showSkip']/a[@class='skip']"))).click()
             time.sleep(5)
             client.delete_all_cookies()
             if len(client.window_handles) < 4:
                 link = "window.open(\"http://adf.ly/25551289/www.pornhub.com/view_video.php?viewkey="+id_generator()+"\");"
                 client.execute_script(link)            
             client.switch_to.window(client.window_handles[3])
-            client.get("http://j.gs/25551289/girlxxx04")
-            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.ID, "skip_bu2tton"))).click()
+            client.get("http://adfoc.us/67494880341622")
+            WebDriverWait(client, 10).until(EC.element_to_be_clickable((By.XPATH, "//span[@id='showSkip']/a[@class='skip']"))).click()
             time.sleep(5)
             client.delete_all_cookies()
             time.sleep(5)
@@ -54,7 +54,7 @@ def clicker(client):
 
 while True:
     firefox_options = Options()
-    firefox_options.add_argument("--headless")
+    #firefox_options.add_argument("--headless")
     client = webdriver.Firefox(options=firefox_options)
     client.set_window_size(1366, 768)
-    clicker(client)
+    clicker(client)      
