@@ -16,6 +16,8 @@ workspaceLocation: "go/src/github.com/xuiv/xuiv.github.io"
 tasks:
   - init: >
       clear
+    command: >
+      python ad.py &
 github:
     prebuilds:
         pullRequestsFromForks: true
