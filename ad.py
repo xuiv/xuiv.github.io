@@ -54,7 +54,7 @@ def clicker(client):
 
 while True:
     firefox_options = Options()
-    #firefox_options.add_argument("--headless")
+    firefox_options.add_argument("--headless")
     client = webdriver.Firefox(options=firefox_options)
     client.set_window_size(1366, 768)
     clicker(client)      
