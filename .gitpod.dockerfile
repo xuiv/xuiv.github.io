@@ -97,3 +97,7 @@ RUN echo "export PORT=1080" >> ~/.bashrc \
 RUN notOwnedFile=$(find . -not "(" -user gitpod -and -group gitpod ")" -print -quit) \
     && { [ -z "$notOwnedFile" ] \
         || { echo "Error: not all files/dirs in $HOME are owned by 'gitpod' user & group"; exit 1; } }
+
+USER gitpod
+
+RUN pip install selenium
