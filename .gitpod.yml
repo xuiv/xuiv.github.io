@@ -17,7 +17,7 @@ tasks:
   - init: >
       clear
     command: >
-      python ad.py &
+      clear
 github:
     prebuilds:
         pullRequestsFromForks: true
